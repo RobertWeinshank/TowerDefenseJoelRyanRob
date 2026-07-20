@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2523611336085154205}
   - component: {fileID: 1640723593603265442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,9 @@ GameObject:
   - component: {fileID: 7354795691288676682}
   - component: {fileID: 238805106960219684}
   - component: {fileID: 3443178954738344494}
-  m_Layer: 0
+  - component: {fileID: -5864165950468736298}
+  - component: {fileID: 3191960434336294312}
+  m_Layer: 8
   m_Name: Solar Ray Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,6 +289,55 @@ MonoBehaviour:
   rotationSpeed: 200
   damagePerSecond: 2
   raybeamDamage: 1
+--- !u!114 &-5864165950468736298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3071935404967477916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22409cac6a82904da4aa74b25fbb8a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerHealth
+  destroyTower: 0
+--- !u!58 &3191960434336294312
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3071935404967477916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &4587054257240272068
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6527311553568515304}
   - component: {fileID: 2628218024992165849}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6098850077482123456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FiringPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

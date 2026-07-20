@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("References")]
     //Array for ALL TYPES of enemies to spawn in game  
     [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private GameObject oilRig;
+    [SerializeField] private Plot[] oilRigPlots;
     
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
@@ -25,6 +27,10 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesLeftToSpawn;
     private float eps;//Enemies per second
     private bool isSpawning = false;
+    private bool spawnOilJack = true;
+    public int plotLocation = 0;
+
+    private GameObject tower;
 
     private void Awake()
     {
@@ -58,6 +64,39 @@ public class EnemySpawner : MonoBehaviour
         {
             EndWave();
         }
+
+        if (currentWave == 2 && spawnOilJack)
+        {
+            spawnOilJack = false;
+            //CheckOilRigLocation();
+            SpawningOilJack();
+            plotLocation++;
+        }
+
+        if (currentWave == 3 && !spawnOilJack)
+        {
+            spawnOilJack = true;
+        }
+
+        if (currentWave == 4 && spawnOilJack)
+        {
+            spawnOilJack = false;
+            //CheckOilRigLocation();
+            SpawningOilJack();
+            plotLocation++;
+        }
+
+        if (currentWave == 5 && !spawnOilJack)
+        {
+            spawnOilJack = true;
+        }
+
+        if (currentWave == 6 && spawnOilJack)
+        {
+            spawnOilJack = false;
+            //CheckOilRigLocation();
+            SpawningOilJack();
+        }   
     }
 
     private void EnemyDestroyed()
@@ -98,5 +137,25 @@ public class EnemySpawner : MonoBehaviour
     private float EnemiesPerSecond()
     {
         return Mathf.Clamp(enemiesPerSecond * Mathf.Pow(currentWave, difficultyScalingFactor), 0, enemiesPerSecondCap);
-    }    
+    }
+    
+    private void SpawningOilJack()
+    {
+        Instantiate(oilRig, oilRigPlots[plotLocation].getPlot(), Quaternion.identity);
+    }
+
+    private int CheckOilRigLocation()
+    {
+        for (int i = 0; i <= oilRigPlots.Length; i++)
+        {
+            if (tower != oilRigPlots[i])
+            {
+                plotLocation = i;
+                return plotLocation;
+            }
+            
+        }  
+        
+        return -1;
+    }
 }
