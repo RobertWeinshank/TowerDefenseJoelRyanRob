@@ -42,7 +42,7 @@ public class TurretSlowmo : MonoBehaviour
 
                 EnemyHealth eh = hits[i].transform.GetComponent<EnemyHealth>(); //Damages the enemy overtime
                 eh.TakeDamage(damage);
-                Debug.Log("Enemy taking rain damage");
+                //Debug.Log("Enemy taking rain damage");
 
                 StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
             }

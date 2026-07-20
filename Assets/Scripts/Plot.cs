@@ -48,4 +48,9 @@ public class Plot : MonoBehaviour
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
          
     }
+
+    public Vector3 getPlot()
+    {
+        return transform.position;
+    }
 }

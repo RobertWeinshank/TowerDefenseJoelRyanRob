@@ -136,8 +136,8 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  detectionPoint: {fileID: 0}
+  towerMask:
+    serializedVersion: 2
+    m_Bits: 256
   targetingRange: 2
-  attackSpeed: 4
-  oilTime: 3
-  detectionRange: 2
+  oilTime: 1.25
