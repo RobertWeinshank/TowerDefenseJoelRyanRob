@@ -6,13 +6,16 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
 
     public Transform startPoint;
+    public Transform secondaryStartPoint;
     //Enemy path that they take (The orange points in the game)
     public Transform[] path;
+    public Transform[] secondaryPath;
 
     public int currency;
     public int health;
     public int gaiaEnergy;
     public int currentWave = 1;
+    public int currentSecondWave = 5;
 
     private float energyCounter;
 
@@ -71,5 +74,9 @@ public class LevelManager : MonoBehaviour
     public void GetWave(int amount) // get reference from EnemySpawner on wave count
     {
         currentWave = amount;
+    }
+    public void GetSecondWave(int amount) // get reference from EnemySpawner on wave count
+    {
+        currentSecondWave = amount;
     }
 }
