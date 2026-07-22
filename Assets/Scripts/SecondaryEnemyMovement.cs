@@ -10,6 +10,10 @@ public class SecondaryEnemyMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private int damage = 1;
 
+    [Header("Path")]
+    [SerializeField] private LevelManager.PathType pathType;
+
+
     //point we want to move to
     //private Transform target;
     private Transform secondaryTarget;

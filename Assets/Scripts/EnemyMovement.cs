@@ -12,22 +12,48 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private int damage = 1;
 
     //point we want to move to
-    private Transform target;
-    private int pathIndex = 0;
+    public Transform target;
+    public Transform[] targetPath;
+    public int pathIndex = 0;
+    public LevelManager.PathType pathType = LevelManager.PathType.Primary;
 
     private float baseSpeed;
+
+    public bool started = false;
 
     private void Start()
     {
         baseSpeed = moveSpeed;
         animator = GetComponent<Animator>();
-        target = LevelManager.main.path[pathIndex];
+        //target = LevelManager.main.path[pathIndex];
     }
+
+    public void SetPathType(LevelManager.PathType _pathType)
+    {
+        pathType = _pathType;
+        targetPath = LevelManager.main.GetPath(pathType);
+        //Debug.Log("Receive path " + targetPath);
+        //for (int i = 0; i < targetPath.Length; ++i)
+        //{
+        //    Debug.Log("    Transform[" + i + "]: " + targetPath[i]);
+        //}
+        target = targetPath[pathIndex];
+        started = true;
+        //Debug.Log("Started: " + started);
+    } 
 
     private void Update()
     {
-        //If the enemy's position is on the targeted path location, increase pathIndex 
-        if (Vector2.Distance(target.position, transform.position) <= 0.1f)
+        if (!started)
+        {
+            return;
+        }
+        Debug.Log(started);
+
+        //If the enemy's position is on the targeted path location, increase pathIndex
+        float dist = Vector2.Distance(target.position, transform.position);
+        //Debug.Log("targetIndex " + pathIndex + " distance: " + dist);
+        if (dist <= 0.1f)
         {
             pathIndex++;
             
@@ -43,13 +69,18 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                target = LevelManager.main.path[pathIndex]; //If they aren't at the end of the path, move to the next point
+                target = targetPath[pathIndex]; //If they aren't at the end of the path, move to the next point
             }
         }
     }
 
     private void FixedUpdate()
     {
+        if (!started)
+        {
+            return;
+        }
+
         //Move the enemy towards the target
         Vector2 direction = (target.position - transform.position).normalized;
 

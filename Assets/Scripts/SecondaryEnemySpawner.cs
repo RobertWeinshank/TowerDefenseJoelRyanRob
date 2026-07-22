@@ -19,7 +19,7 @@ public class SecondaryEnemySpawner : MonoBehaviour
     [Header("Events")]
     public static UnityEvent onSecondaryEnemyDestroy = new UnityEvent();
 
-    public int currentWave = 5;
+    public int currentWave = 1;
     private float timeSinceLastSpawn;
     private int secondaryEnemiesAlive;
     private int secondaryEnemiesLeftToSpawn;
