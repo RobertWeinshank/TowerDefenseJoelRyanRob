@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     public int currentSecondWave = 5;
 
     private float energyCounter;
+    private bool isGameOver = false; // Prevents the game over logic from running multiple time
 
     private void Awake()
     {
@@ -33,6 +34,8 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        if (isGameOver) return; // Stops energy production if the game is over
+
         energyCounter += Time.deltaTime;
 
         if (energyCounter >= 3f)
@@ -63,7 +66,22 @@ public class LevelManager : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
+        if (isGameOver) return; //Ignore damage if already dead
         health -= amount;
+
+        // Check if health has dropped to or below zero
+        if (health <= 0)
+        {
+            health = 0; // Keep health from showing negative numbers in UI
+            TriggerGameOver();
+        }
+    }
+
+    private void TriggerGameOver()
+    {
+        isGameOver = true;
+        Debug.Log("Game Over! The player has lost.");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void IncreaseGaiaEnergy(int amount)

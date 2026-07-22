@@ -11,6 +11,7 @@ public class PauseMenuController : MonoBehaviour
             container.SetActive(true);
             Time.timeScale = 0f;
         }
+        if (Time.timeScale == 0f) return;
     }
 
     public void ResumeButton()
