@@ -15,30 +15,10 @@ public class LevelManager : MonoBehaviour
     public int health;
     public int gaiaEnergy;
     public int currentWave = 1;
-    public int currentSecondWave = 1;
+    //public int currentSecondWave = 5;
 
     private float energyCounter;
     private bool isGameOver = false; // Prevents the game over logic from running multiple time
-
-   public enum PathType
-    {
-        Primary,
-        Secondary
-    }
-
-    public Transform[] GetPath(PathType pathType)
-    {
-        switch (pathType) {
-            case PathType.Primary:
-                Debug.Log("LevelManager::GetPath returning " + path);
-                return path;
-            case PathType.Secondary:
-                Debug.Log("LevelManager::GetPath returning " + secondaryPath);
-                return secondaryPath;
-            default:
-                return path;
-        }
-    }
 
     private void Awake()
     {
@@ -113,8 +93,8 @@ public class LevelManager : MonoBehaviour
     {
         currentWave = amount;
     }
-    public void GetSecondWave(int amount) // get reference from EnemySpawner on wave count
-    {
-        currentSecondWave = amount;
-    }
+    //public void GetSecondWave(int amount) // get reference from EnemySpawner on wave count
+    //{
+    //    currentSecondWave = amount;
+    //}
 }

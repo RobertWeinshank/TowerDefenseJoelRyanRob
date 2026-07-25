@@ -17,7 +17,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecondCap = 15f;
-    [SerializeField] private LevelManager.PathType pathType = LevelManager.PathType.Primary;
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
@@ -46,7 +45,6 @@ public class EnemySpawner : MonoBehaviour
     
     private void Update()
     {
-        Debug.Log("Enemies left to spawn: " + enemiesLeftToSpawn + "\nEnemies Alive: " + enemiesAlive);
         //If we're not spawning, nothing will run in here
         if (!isSpawning) return;
         
@@ -125,11 +123,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        //Debug.Log("Spawn Enemy");
         int index = Random.Range(0, enemyPrefabs.Length);
         GameObject prefabToSpawn = enemyPrefabs[index]; //In the future, we can randomize which enemy spawns
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
-        EnemyMovement enemyMovement = prefabToSpawn.GetComponent<EnemyMovement>();
-        enemyMovement.SetPathType(pathType);
     }
 
     private int EnemiesPerWave()
