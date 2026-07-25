@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currency = 100;
+        currency = 200;
         health = 100;
         gaiaEnergy = 0;
     }

@@ -2721,7 +2721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &171195948
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6081,6 +6081,7 @@ GameObject:
   - component: {fileID: 433314419}
   - component: {fileID: 433314421}
   - component: {fileID: 433314422}
+  - component: {fileID: 433314423}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -6200,6 +6201,18 @@ MonoBehaviour:
   - name: Tree Hugger
     cost: 90
     prefab: {fileID: 4396689259629909146, guid: 8384205a319f31343af3bfb7168d8c70, type: 3}
+--- !u!114 &433314423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433314418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06e668c3097af441898457dea20e7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
 --- !u!4 &433392816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4438592522262066474, guid: ba5cefefe09075b42b544741340d42ce, type: 3}
@@ -9667,7 +9680,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000971bdcd1f709c203
+  m_ApplyToSortingLayers: 00000000971bdcd1f709c203d5d5bcd0
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
