@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
     {
         isGameOver = true;
         Debug.Log("Game Over! The player has lost.");
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("DeathScene");
     }
 
     public void IncreaseGaiaEnergy(int amount)

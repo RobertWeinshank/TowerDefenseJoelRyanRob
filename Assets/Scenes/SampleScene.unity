@@ -6628,7 +6628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 454.03973, y: -26.35205}
+  m_AnchoredPosition: {x: 481, y: -26.35205}
   m_SizeDelta: {x: 330.5602, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460198501
@@ -27821,7 +27821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130.37604, y: -27.02948}
+  m_AnchoredPosition: {x: 155.1, y: -27.02948}
   m_SizeDelta: {x: 260.7537, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114267443
@@ -27837,6 +27837,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   healthUI: {fileID: 2114267444}
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.2
+  targetScale: {x: 1.3, y: 1.3, z: 1.3}
 --- !u!114 &2114267444
 MonoBehaviour:
   m_ObjectHideFlags: 0
