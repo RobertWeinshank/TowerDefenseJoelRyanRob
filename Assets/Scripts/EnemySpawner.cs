@@ -65,38 +65,38 @@ public class EnemySpawner : MonoBehaviour
             EndWave();
         }
 
-        if (currentWave == 2 && spawnOilJack)
-        {
-            spawnOilJack = false;
-            //CheckOilRigLocation();
-            SpawningOilJack();
-            plotLocation++;
-        }
+        //if (currentWave == 2 && spawnOilJack)
+        //{
+        //    spawnOilJack = false;
+        //    //CheckOilRigLocation();
+        //    SpawningOilJack();
+        //    plotLocation++;
+        //}
 
-        if (currentWave == 3 && !spawnOilJack)
-        {
-            spawnOilJack = true;
-        }
+        //if (currentWave == 3 && !spawnOilJack)
+        //{
+        //    spawnOilJack = true;
+        //}
 
-        if (currentWave == 4 && spawnOilJack)
-        {
-            spawnOilJack = false;
-            //CheckOilRigLocation();
-            SpawningOilJack();
-            plotLocation++;
-        }
+        //if (currentWave == 4 && spawnOilJack)
+        //{
+        //    spawnOilJack = false;
+        //    //CheckOilRigLocation();
+        //    SpawningOilJack();
+        //    plotLocation++;
+        //}
 
-        if (currentWave == 5 && !spawnOilJack)
-        {
-            spawnOilJack = true;
-        }
+        //if (currentWave == 5 && !spawnOilJack)
+        //{
+        //    spawnOilJack = true;
+        //}
 
-        if (currentWave == 6 && spawnOilJack)
-        {
-            spawnOilJack = false;
-            //CheckOilRigLocation();
-            SpawningOilJack();
-        }   
+        //if (currentWave == 6 && spawnOilJack)
+        //{
+        //    spawnOilJack = false;
+        //    //CheckOilRigLocation();
+        //    SpawningOilJack();
+        //}   
     }
 
     private void EnemyDestroyed()
