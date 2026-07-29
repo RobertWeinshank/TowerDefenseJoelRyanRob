@@ -326,8 +326,8 @@ MonoBehaviour:
   upgradeUI: {fileID: 7652536154687935540}
   upgradeButton: {fileID: 3463476607892135538}
   targetingRange: 3
-  rotationSpeed: 200
-  damagePerSecond: 2
+  rotationSpeed: 100
+  damagePerSecond: 4
   raybeamDamage: 1
   baseUpgradeCost: 100
 --- !u!114 &-5864165950468736298

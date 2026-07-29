@@ -842,7 +842,8 @@ MonoBehaviour:
   upgradeButton: {fileID: 5021747633653151298}
   targetingRange: 3
   rotationSpeed: 200
-  bulletsPerSecond: 1
+  bulletsPerSecond: 0.8
+  baseUpgradeCost: 40
 --- !u!114 &-3453053898543279640
 MonoBehaviour:
   m_ObjectHideFlags: 0

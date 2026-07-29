@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     public int health;
     public int gaiaEnergy;
     public int currentWave = 1;
-    //public int currentSecondWave = 5;
+    public int currentSecondWave = 5;
 
     private float energyCounter;
     private bool isGameOver = false; // Prevents the game over logic from running multiple time
@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currency = 200;
+        currency = 60;
         health = 100;
         gaiaEnergy = 0;
     }
@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
     {
         isGameOver = true;
         Debug.Log("Game Over! The player has lost.");
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("DeathScene");
     }
 
     public void IncreaseGaiaEnergy(int amount)
@@ -93,8 +93,8 @@ public class LevelManager : MonoBehaviour
     {
         currentWave = amount;
     }
-    //public void GetSecondWave(int amount) // get reference from EnemySpawner on wave count
-    //{
-    //    currentSecondWave = amount;
-    //}
+    public void GetSecondWave(int amount) // get reference from EnemySpawner on wave count
+    {
+        currentSecondWave = amount;
+    }
 }

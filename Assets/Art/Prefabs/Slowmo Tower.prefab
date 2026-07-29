@@ -588,9 +588,9 @@ MonoBehaviour:
   upgradeUI: {fileID: 5812790373024836302}
   upgradeButton: {fileID: 3500252287340034256}
   targetingRange: 2
-  attackSpeed: 2
-  freezeTime: 1
-  damage: 1
+  attackSpeed: 0.337
+  freezeTime: 0.8
+  damage: 4
   baseUpgradeCost: 100
 --- !u!114 &-22138124054920129
 MonoBehaviour:
