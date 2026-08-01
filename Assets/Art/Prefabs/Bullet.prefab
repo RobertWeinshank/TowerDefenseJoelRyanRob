@@ -171,4 +171,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   rb: {fileID: 7062030701062953503}
-  bulletSpeed: 5
+  bulletSpeed: 8
+  bulletDamage: 2
