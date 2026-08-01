@@ -54,7 +54,7 @@ public class SolarRayTower : MonoBehaviour
             return;
         }
 
-        RotateTowardsTarget();
+        //RotateTowardsTarget();
 
         if (!CheckTargetIsInRange())
         {

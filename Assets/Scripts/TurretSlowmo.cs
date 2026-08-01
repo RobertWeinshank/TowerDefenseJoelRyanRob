@@ -23,6 +23,7 @@ public class TurretSlowmo : MonoBehaviour
     private float attackSpeedBase;
     private float targetingRangeBase;
     private int level = 1;
+    private bool slowEnemy = true;
 
     private void Start()
     {
@@ -34,13 +35,18 @@ public class TurretSlowmo : MonoBehaviour
 
     void Update()
     {
-        timeUntilFire += Time.deltaTime;
+        //timeUntilFire += Time.deltaTime;
 
-        if (timeUntilFire >= 1f / attackSpeed)
-        {
+        //if (timeUntilFire >= 1f / attackSpeed)
+        //{
+        //    FreezeEnemies();
+        //    timeUntilFire = 0f;
+        //}
+
+        //if (slowEnemy)
+        //{
             FreezeEnemies();
-            timeUntilFire = 0f;
-        }
+        //}
     }
 
     private void FreezeEnemies()
@@ -57,10 +63,13 @@ public class TurretSlowmo : MonoBehaviour
                 em.UpdateSpeed(0.5f);//Updates the speed once you get the script
 
                 EnemyHealth eh = hits[i].transform.GetComponent<EnemyHealth>(); //Damages the enemy overtime
-                eh.TakeDamage(damage);
+                //eh.TakeDamage(damage);
                 //Debug.Log("Enemy taking rain damage");
-
-                StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                if (!slowEnemy)
+                {
+                    StartCoroutine(ResetEnemeySpeed(em));
+                }
+                //StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
             }
         }
     }
@@ -115,6 +124,21 @@ public class TurretSlowmo : MonoBehaviour
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            slowEnemy = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+           slowEnemy = false;
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
