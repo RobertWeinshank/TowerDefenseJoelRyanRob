@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -35,18 +35,22 @@ public class TurretSlowmo : MonoBehaviour
 
     void Update()
     {
-        //timeUntilFire += Time.deltaTime;
 
-        //if (timeUntilFire >= 1f / attackSpeed)
-        //{
-        //    FreezeEnemies();
-        //    timeUntilFire = 0f;
-        //}
-
-        //if (slowEnemy)
-        //{
+        if (level == 3)
+        {
             FreezeEnemies();
-        //}
+        }
+        
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+            if (timeUntilFire >= 1f / attackSpeed)
+            {
+                FreezeEnemies();
+                timeUntilFire = 0f;
+            }
+        }
+        
     }
 
     private void FreezeEnemies()
@@ -63,13 +67,19 @@ public class TurretSlowmo : MonoBehaviour
                 em.UpdateSpeed(0.5f);//Updates the speed once you get the script
 
                 EnemyHealth eh = hits[i].transform.GetComponent<EnemyHealth>(); //Damages the enemy overtime
-                //eh.TakeDamage(damage);
                 //Debug.Log("Enemy taking rain damage");
-                if (!slowEnemy)
+                if (level == 3)
                 {
-                    StartCoroutine(ResetEnemeySpeed(em));
+                    if (!slowEnemy)
+                    {
+                        StartCoroutine(ResetEnemeySpeed(em));
+                    }
                 }
-                //StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                else
+                {
+                    StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                    eh.TakeDamage(damage);
+                }
             }
         }
     }

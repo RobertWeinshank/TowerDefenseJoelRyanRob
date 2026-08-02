@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: 2728958541271311608}
   animator: {fileID: -3831298069893214151}
+  spriteRenderer: {fileID: 8026649814472739589}
   moveSpeed: 1.2
   damage: 1
 --- !u!114 &3002825257287373558

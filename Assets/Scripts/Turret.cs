@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using System.Collections;
 
 public class Turret : MonoBehaviour
 {
@@ -134,6 +135,13 @@ public class Turret : MonoBehaviour
     private float CalculateTargetingRange()
     {
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
+    }
+
+    private IEnumerator ResetEnemeySpeed(EnemyMovement em)
+    {
+        yield return new WaitForSeconds(.5f);
+
+        em.ResetSpeed();
     }
     private void OnDrawGizmosSelected()
     {

@@ -89,7 +89,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4582004533803295268, guid: 4dc0a30617febf24ea0c5e2b7a90f5ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: 2728958541271311608}
   animator: {fileID: -7022798929604098606}
+  spriteRenderer: {fileID: 8026649814472739589}
   moveSpeed: 0.8
   damage: 2
 --- !u!114 &3002825257287373558
