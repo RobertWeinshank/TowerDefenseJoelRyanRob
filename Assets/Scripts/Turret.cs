@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using System.Collections;
 
 public class Turret : MonoBehaviour
 {
@@ -135,6 +136,16 @@ public class Turret : MonoBehaviour
     {
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
+<<<<<<< Updated upstream
+=======
+
+    private IEnumerator ResetEnemeySpeed(EnemyMovement em)
+    {
+        yield return new WaitForSeconds(.5f);
+
+        em.ResetSpeed();
+    }
+>>>>>>> Stashed changes
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;

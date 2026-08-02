@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Plot : MonoBehaviour
@@ -8,11 +9,17 @@ public class Plot : MonoBehaviour
     [SerializeField] private Color hoverColor;
  
     public GameObject towerObj;
+<<<<<<< Updated upstream
+=======
+    public GameObject seedPrefab;
+>>>>>>> Stashed changes
     public Turret turret;
     public TurretSlowmo slowmo;
     public SolarRayTower solar;
     public TreeHugger tree;
     private Color startColor;
+    private float seedTime;
+
 
     //Set plot color to starting color
     private void Start()
@@ -78,6 +85,19 @@ public class Plot : MonoBehaviour
         }
 
         LevelManager.main.SpendCurrency(towerToBuild.cost);
+<<<<<<< Updated upstream
+=======
+        StartCoroutine(WaitForSeed());
+    }
+
+    IEnumerator WaitForSeed()
+    {
+        Tower towerToBuild = BuildManager.main.GetSelectedTower();
+
+        seedPrefab = Instantiate(seedPrefab, this.transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(3f);
+>>>>>>> Stashed changes
         towerObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         turret = towerObj.GetComponent<Turret>();
         slowmo = towerObj.GetComponent<TurretSlowmo>();

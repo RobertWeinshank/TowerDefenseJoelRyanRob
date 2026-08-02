@@ -20,7 +20,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabsWave11Beyond;
     [SerializeField] private GameObject oilRig;
     [SerializeField] private Plot[] oilRigPlots;
-    
+
+
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 10;
     [SerializeField] private float enemiesPerSecond = 0.5f;
@@ -39,6 +40,15 @@ public class EnemySpawner : MonoBehaviour
     private bool isSpawning = false;
     private bool spawnOilJack = true;
     public int plotLocation = 0;
+    
+    private int oilSpawnAmountR5 = 1;
+    private int oilSpawnAmountR6 = 1;
+    private int oilSpawnAmountR7 = 2;
+    private int oilSpawnAmountR8 = 2;
+    private int oilSpawnAmountR9 = 3;
+    private int oilSpawnAmountR10 = 4;
+    private int oilSpawnAmountR11 = 5;
+
 
     private GameObject tower;
 
@@ -73,7 +83,40 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
         {
             EndWave();
+            if (currentWave >= 11)
+            {
+                oilSpawnAmountR11 = 5;
+            }
         }
+
+<<<<<<< Updated upstream
+        //if (currentWave == 2 && spawnOilJack)
+        //{
+        //    spawnOilJack = false;
+        //    //CheckOilRigLocation();
+        //    SpawningOilJack();
+        //    plotLocation++;
+        //}
+
+        //if (currentWave == 3 && !spawnOilJack)
+        //{
+        //    spawnOilJack = true;
+        //}
+
+        //if (currentWave == 4 && spawnOilJack)
+        //{
+        //    spawnOilJack = false;
+        //    //CheckOilRigLocation();
+        //    SpawningOilJack();
+        //    plotLocation++;
+        //}
+
+        //if (currentWave == 5 && !spawnOilJack)
+        //{
+        //    spawnOilJack = true;
+        //}
+
+=======
 
         //if (currentWave == 2 && spawnOilJack)
         //{
@@ -101,6 +144,7 @@ public class EnemySpawner : MonoBehaviour
         //    spawnOilJack = true;
         //}
 
+>>>>>>> Stashed changes
         //if (currentWave == 6 && spawnOilJack)
         //{
         //    spawnOilJack = false;
@@ -151,6 +195,10 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave2.Length);
             GameObject prefabToSpawn = enemyPrefabsWave2[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+            //SpawningOilJack();
+>>>>>>> Stashed changes
         }
         else if (currentWave == 3)
         {
@@ -165,6 +213,10 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave4.Length);
             GameObject prefabToSpawn = enemyPrefabsWave4[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+            //SpawningOilJack();
+>>>>>>> Stashed changes
         }
         else if (currentWave == 5)
         {
@@ -172,6 +224,15 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave5.Length);
             GameObject prefabToSpawn = enemyPrefabsWave5[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+
+            if(oilSpawnAmountR5 > 0)
+            {
+                SpawningOilJack();
+                oilSpawnAmountR5--;
+            }
+>>>>>>> Stashed changes
         }
         else if (currentWave == 6)
         {
@@ -179,6 +240,14 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave6.Length);
             GameObject prefabToSpawn = enemyPrefabsWave6[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+            if (oilSpawnAmountR6 > 0)
+            {
+                SpawningOilJack();
+                oilSpawnAmountR6--;
+            }
+>>>>>>> Stashed changes
         }
         else if (currentWave == 7)
         {
@@ -186,6 +255,14 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave7.Length);
             GameObject prefabToSpawn = enemyPrefabsWave7[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+            if (oilSpawnAmountR7 > 0)
+            {
+                SpawningOilJack();
+                oilSpawnAmountR7--;
+            }
+>>>>>>> Stashed changes
         }
         else if (currentWave == 8)
         {
@@ -193,6 +270,14 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave8.Length);
             GameObject prefabToSpawn = enemyPrefabsWave8[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+            if (oilSpawnAmountR8 > 0)
+            {
+                SpawningOilJack();
+                oilSpawnAmountR8--;
+            }
+>>>>>>> Stashed changes
         }
         else if (currentWave == 9)
         {
@@ -200,6 +285,14 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave9.Length);
             GameObject prefabToSpawn = enemyPrefabsWave9[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+            if (oilSpawnAmountR9 > 0)
+            {
+                SpawningOilJack();
+                oilSpawnAmountR9--;
+            }
+>>>>>>> Stashed changes
         }
         else if (currentWave == 10)
         {
@@ -207,6 +300,14 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave10.Length);
             GameObject prefabToSpawn = enemyPrefabsWave10[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+            if (oilSpawnAmountR10 > 0)
+            {
+                SpawningOilJack();
+                oilSpawnAmountR10--;
+            }
+>>>>>>> Stashed changes
         }
         else if (currentWave >= 11)
         {
@@ -214,6 +315,14 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave11Beyond.Length);
             GameObject prefabToSpawn = enemyPrefabsWave11Beyond[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
+<<<<<<< Updated upstream
+=======
+            if (oilSpawnAmountR11 > 0)
+            {
+                SpawningOilJack();
+                oilSpawnAmountR11--;
+            }
+>>>>>>> Stashed changes
         }
     }
 
@@ -229,7 +338,8 @@ public class EnemySpawner : MonoBehaviour
     
     private void SpawningOilJack()
     {
-        Instantiate(oilRig, oilRigPlots[plotLocation].getPlot(), Quaternion.identity);
+        //Instantiate(oilRig, oilRigPlots[plotLocation].getPlot(), Quaternion.identity);
+        Instantiate(oilRig, LevelManager.main.startPoint.position, Quaternion.identity);
     }
 
     private int CheckOilRigLocation()

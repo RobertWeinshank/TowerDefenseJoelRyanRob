@@ -6,6 +6,10 @@ TagManager:
   tags:
   - PumpJack
   - PumpJackEnemy
+<<<<<<< Updated upstream
+=======
+  - Enemy
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

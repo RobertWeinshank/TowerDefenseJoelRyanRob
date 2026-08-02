@@ -467,8 +467,13 @@ Transform:
   m_GameObject: {fileID: 9040443372588328970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: -0.035, y: 0.365, z: 0}
   m_LocalScale: {x: 1.6000001, y: 1.7041593, z: 1.6000001}
+=======
+  m_LocalPosition: {x: -0.35567, y: -0.43472, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+>>>>>>> Stashed changes
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6474402424758443265}
@@ -521,9 +526,13 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
+<<<<<<< Updated upstream
   m_Sprite: {fileID: -4068061288907483571, guid: 1a05cfdf203c5d34dbe4304dcf5f29e4, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: e1c2636a8f02c9f4e88b448982658979, type: 3}
+>>>>>>> Stashed changes
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -568,8 +577,13 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
+<<<<<<< Updated upstream
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+=======
+  m_Offset: {x: -0.0042891502, y: 0.00028908253}
+  m_Radius: 2.4943209
+>>>>>>> Stashed changes
 --- !u!114 &6400050878669786695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,9 +602,15 @@ MonoBehaviour:
   upgradeUI: {fileID: 5812790373024836302}
   upgradeButton: {fileID: 3500252287340034256}
   targetingRange: 2
+<<<<<<< Updated upstream
   attackSpeed: 0.5
   freezeTime: 0.8
   damage: 2
+=======
+  attackSpeed: 0.337
+  freezeTime: 0.8
+  damage: 4
+>>>>>>> Stashed changes
   baseUpgradeCost: 100
 --- !u!114 &-22138124054920129
 MonoBehaviour:

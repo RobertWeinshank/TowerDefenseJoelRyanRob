@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -23,6 +23,10 @@ public class TurretSlowmo : MonoBehaviour
     private float attackSpeedBase;
     private float targetingRangeBase;
     private int level = 1;
+<<<<<<< Updated upstream
+=======
+    private bool slowEnemy = true;
+>>>>>>> Stashed changes
 
     private void Start()
     {
@@ -34,13 +38,22 @@ public class TurretSlowmo : MonoBehaviour
 
     void Update()
     {
-        timeUntilFire += Time.deltaTime;
 
-        if (timeUntilFire >= 1f / attackSpeed)
+        if (level == 3)
         {
             FreezeEnemies();
-            timeUntilFire = 0f;
         }
+        
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+            if (timeUntilFire >= 1f / attackSpeed)
+            {
+                FreezeEnemies();
+                timeUntilFire = 0f;
+            }
+        }
+        
     }
 
     private void FreezeEnemies()
@@ -57,10 +70,19 @@ public class TurretSlowmo : MonoBehaviour
                 em.UpdateSpeed(0.5f);//Updates the speed once you get the script
 
                 EnemyHealth eh = hits[i].transform.GetComponent<EnemyHealth>(); //Damages the enemy overtime
-                eh.TakeDamage(damage);
                 //Debug.Log("Enemy taking rain damage");
-
-                StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                if (level == 3)
+                {
+                    if (!slowEnemy)
+                    {
+                        StartCoroutine(ResetEnemeySpeed(em));
+                    }
+                }
+                else
+                {
+                    StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                    eh.TakeDamage(damage);
+                }
             }
         }
     }
@@ -115,6 +137,24 @@ public class TurretSlowmo : MonoBehaviour
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
 
+<<<<<<< Updated upstream
+=======
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            slowEnemy = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+           slowEnemy = false;
+        }
+    }
+>>>>>>> Stashed changes
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;

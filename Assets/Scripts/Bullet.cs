@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -25,10 +26,21 @@ public class Bullet : MonoBehaviour
         rb.linearVelocity = direction * bulletSpeed;
     }
 
+    private IEnumerator ResetEnemeySpeed(EnemyMovement em)
+    {
+        em.UpdateSpeed(.5f);
+        
+        yield return new WaitForEndOfFrame();
+
+        em.ResetSpeed();
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
+        EnemyMovement em = other.transform.GetComponent<EnemyMovement>();
         other.gameObject.GetComponent<EnemyHealth>().TakeDamage(bulletDamage); //On bullet collision, take damage
         Destroy(gameObject); //destroy bullet after collision
+        StartCoroutine(ResetEnemeySpeed(em));
     }
 }
 

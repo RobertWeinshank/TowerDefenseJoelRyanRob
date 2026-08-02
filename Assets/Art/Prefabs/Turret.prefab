@@ -130,7 +130,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+>>>>>>> Stashed changes
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4410915246883439645}
@@ -184,7 +188,11 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
+<<<<<<< Updated upstream
   m_Sprite: {fileID: 21300000, guid: 5288e936067c7c547a34d69ad8975ae9, type: 3}
+=======
+  m_Sprite: {fileID: -6263020229410711935, guid: a37b32bd155f88a439e10e40d81dfd2b, type: 3}
+>>>>>>> Stashed changes
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -357,14 +365,20 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2462567310718685416}
   serializedVersion: 2
+<<<<<<< Updated upstream
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.009, y: 0.189, z: 0}
   m_LocalScale: {x: 1.7663637, y: 1.7663637, z: 1.7663637}
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0.70884126, w: 0.7053681}
+  m_LocalPosition: {x: 0.02, y: 0.211, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+>>>>>>> Stashed changes
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 4805463794007059799}
+  - {fileID: 7565156904754077638}
   m_Father: {fileID: 4410915246883439645}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.281}
 --- !u!212 &8715983700299222041
 SpriteRenderer:
   serializedVersion: 3
@@ -414,10 +428,14 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_MaskInteraction: 0
+<<<<<<< Updated upstream
   m_Sprite: {fileID: 21300000, guid: 1c1769a95e70dba44a820c30e604f3b0, type: 3}
+=======
+  m_Sprite: {fileID: -7946229862258323081, guid: aef9494988ca49541a86edda4d69bfc8, type: 3}
+>>>>>>> Stashed changes
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
@@ -425,6 +443,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+<<<<<<< Updated upstream
 --- !u!1 &4126288215289176985
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +537,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+=======
+>>>>>>> Stashed changes
 --- !u!1 &4885391856868750797
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,11 +564,11 @@ Transform:
   m_GameObject: {fileID: 4885391856868750797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.005000001, y: 0.73, z: 0}
+  m_LocalScale: {x: 0.92987406, y: 0.31007177, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4805463794007059799}
+  m_Father: {fileID: 7771763011253076751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5021886756848453977
 GameObject:
@@ -840,10 +861,17 @@ MonoBehaviour:
   firingPoint: {fileID: 7565156904754077638}
   upgradeUI: {fileID: 615289607545867256}
   upgradeButton: {fileID: 5021747633653151298}
+<<<<<<< Updated upstream
   targetingRange: 2.5
   rotationSpeed: 300
   bulletsPerSecond: 1
   baseUpgradeCost: 25
+=======
+  targetingRange: 3
+  rotationSpeed: 200
+  bulletsPerSecond: 0.8
+  baseUpgradeCost: 40
+>>>>>>> Stashed changes
 --- !u!114 &-3453053898543279640
 MonoBehaviour:
   m_ObjectHideFlags: 0

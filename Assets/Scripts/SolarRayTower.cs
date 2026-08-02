@@ -27,6 +27,12 @@ public class SolarRayTower : MonoBehaviour
     private float damagePerSecondBase;
     private float targetingRangeBase;
     private int level = 1;
+<<<<<<< Updated upstream
+=======
+
+    private float damageOverTimeTimer;
+    private int fireDoTDamage = 1;
+>>>>>>> Stashed changes
 
     private void Start()
     {
@@ -54,7 +60,7 @@ public class SolarRayTower : MonoBehaviour
             return;
         }
 
-        RotateTowardsTarget();
+        //RotateTowardsTarget();
 
         if (!CheckTargetIsInRange())
         {
@@ -64,12 +70,18 @@ public class SolarRayTower : MonoBehaviour
         else //if there are targets in range, shoot
         {
             timeUntilFire += Time.deltaTime;
+            damageOverTimeTimer = 2;
             FireRaybeam(target); //Display the raybeam at the target in range
 
             if (timeUntilFire >= 1f / damagePerSecond)
             {               
                 Solarbeam();//Deal damage to enemy                
             }
+            //if (damageOverTimeTimer > 0)
+            //{
+            //    FireDamage();
+            //    damageOverTimeTimer -= Time.deltaTime;
+            //}
         }
     }
 
@@ -82,6 +94,11 @@ public class SolarRayTower : MonoBehaviour
         {
             StopRaybeam();//Stop the raybeam if the target's hp is 0 or is destroyed
         }
+    }
+
+    private void FireDamage()
+    {
+        target.gameObject.GetComponent<EnemyHealth>().TakeDamage(fireDoTDamage);
     }
 
     private void FindTarget()
@@ -152,6 +169,19 @@ public class SolarRayTower : MonoBehaviour
 
         CloseUpgradeUI();
         Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+<<<<<<< Updated upstream
+=======
+
+        if (level == 2)
+        {
+            Debug.Log("Level 2");
+        }
+
+        if (level == 3)
+        {
+            Debug.Log("Level 3");
+        }
+>>>>>>> Stashed changes
     }
 
     private int CalculateCost()
