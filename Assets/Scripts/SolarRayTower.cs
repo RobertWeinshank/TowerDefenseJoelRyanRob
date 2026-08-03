@@ -9,6 +9,7 @@ public class SolarRayTower : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
+    [SerializeField] private UnityEngine.UI.Button upgradeButton2;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
@@ -42,7 +43,8 @@ public class SolarRayTower : MonoBehaviour
         //Upgrade stuff
         damagePerSecondBase = damagePerSecond;
         targetingRangeBase = targetingRange;
-        upgradeButton.onClick.AddListener(Upgrade); //anytime you click the upgrade button, calls the upgrade method
+        upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
+        upgradeButton2.onClick.AddListener(UpgradePath2);
     }
 
 
@@ -74,11 +76,15 @@ public class SolarRayTower : MonoBehaviour
             {               
                 Solarbeam();//Deal damage to enemy                
             }
-            //if (damageOverTimeTimer > 0)
-            //{
-            //    FireDamage();
-            //    damageOverTimeTimer -= Time.deltaTime;
-            //}
+            if (level == 3)
+            {
+                //if (damageOverTimeTimer > 0)
+                //{
+                //    FireDamage();
+                //    damageOverTimeTimer -= Time.deltaTime;
+                //}
+            }
+
         }
     }
 
@@ -150,7 +156,7 @@ public class SolarRayTower : MonoBehaviour
         UIManager.main.SetHoveringState(false);
     }
 
-    public void Upgrade()
+    public void UpgradePath1() //Ramping Damage
     {
         if (CalculateCost() > LevelManager.main.currency)
         {
@@ -159,23 +165,34 @@ public class SolarRayTower : MonoBehaviour
 
         LevelManager.main.SpendCurrency(CalculateCost());
 
-        level++;
+        level = 2;
 
         damagePerSecond = CalculateDamagePerSecond();
         targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
-        Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        Debug.Log("Ramping damage");
 
-        if (level == 2)
+    }
+
+    public void UpgradePath2() //Damage over Time
+    {
+        if (CalculateCost() > LevelManager.main.currency)
         {
-            Debug.Log("Level 2");
+            return;
         }
 
-        if (level == 3)
-        {
-            Debug.Log("Level 3");
-        }
+        LevelManager.main.SpendCurrency(CalculateCost());
+
+        level = 3;
+
+        //damagePerSecond = CalculateDamagePerSecond();
+        //targetingRange = CalculateTargetingRange();
+
+        CloseUpgradeUI();
+        //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        Debug.Log("Damage over time");
     }
 
     private int CalculateCost()

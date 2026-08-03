@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     //Enemy path that they take (The orange points in the game)
     public Transform[] path;
     public Transform[] secondaryPath;
+    public Transform seedStartPoint;
 
     public GameObject[] quadrant1;
     public GameObject[] quadrant2;

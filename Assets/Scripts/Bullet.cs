@@ -35,6 +35,11 @@ public class Bullet : MonoBehaviour
         em.ResetSpeed();
     }
 
+    public void ChangeDamage(int damage)
+    {
+        bulletDamage = damage;
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         EnemyMovement em = other.transform.GetComponent<EnemyMovement>();

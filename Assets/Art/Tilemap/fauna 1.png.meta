@@ -1,0 +1,462 @@
+fileFormatVersion: 2
+guid: 3773550158b658d429361402cb6f099b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7885302545343246646
+    second: fauna 1_0
+  - first:
+      213: -8265592554433064018
+    second: fauna 1_1
+  - first:
+      213: -6848868708730350993
+    second: fauna 1_2
+  - first:
+      213: -9052509423246628606
+    second: fauna 1_3
+  - first:
+      213: 533004749546653906
+    second: fauna 1_4
+  - first:
+      213: -5209080347514531764
+    second: fauna 1_5
+  - first:
+      213: 5610259515969987882
+    second: fauna 1_6
+  - first:
+      213: 3563640381605651783
+    second: fauna 1_7
+  - first:
+      213: 6790163764190024955
+    second: fauna 1_8
+  - first:
+      213: 229422597923146080
+    second: fauna 1_9
+  - first:
+      213: -9171973246153355859
+    second: fauna 1_10
+  - first:
+      213: -1057820777204758874
+    second: fauna 1_11
+  - first:
+      213: -6439514733496853639
+    second: fauna 1_12
+  - first:
+      213: -3685394196277796704
+    second: fauna 1_13
+  - first:
+      213: -3703865400895344350
+    second: fauna 1_14
+  - first:
+      213: 47742279143654201
+    second: fauna 1_15
+  - first:
+      213: 7918762234742985348
+    second: fauna 1_16
+  - first:
+      213: 8021359771225055030
+    second: fauna 1_17
+  - first:
+      213: -7553058636274960109
+    second: fauna 1_18
+  - first:
+      213: 7130217285427392908
+    second: fauna 1_19
+  - first:
+      213: 7502650764991468636
+    second: fauna 1_20
+  - first:
+      213: -1264233462729979152
+    second: fauna 1_21
+  - first:
+      213: -3663017280740654391
+    second: fauna 1_22
+  - first:
+      213: -6701802535637292899
+    second: fauna 1_23
+  - first:
+      213: -6934742474900579855
+    second: fauna 1_24
+  - first:
+      213: -8086165069146869321
+    second: fauna 1_25
+  - first:
+      213: 9166770400845637073
+    second: fauna 1_26
+  - first:
+      213: -1290461277455330685
+    second: fauna 1_27
+  - first:
+      213: 6415647448437051734
+    second: fauna 1_28
+  - first:
+      213: -7195170801812262744
+    second: fauna 1_29
+  - first:
+      213: 4571823427528832710
+    second: fauna 1_30
+  - first:
+      213: -4696043788193275470
+    second: fauna 1_31
+  - first:
+      213: 593530950560075525
+    second: fauna 1_32
+  - first:
+      213: -8678979220214364873
+    second: fauna 1_33
+  - first:
+      213: 3633732010491350170
+    second: fauna 1_34
+  - first:
+      213: -9103971041481682192
+    second: fauna 1_35
+  - first:
+      213: 6660055172535844927
+    second: fauna 1_36
+  - first:
+      213: 5516211296601484368
+    second: fauna 1_37
+  - first:
+      213: 1060156587432311930
+    second: fauna 1_38
+  - first:
+      213: -1210021829597319323
+    second: fauna 1_39
+  - first:
+      213: -312975836875313181
+    second: fauna 1_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fauna 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ace0556fc17c19290800000000000000
+      internalID: -7885302545343246646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fauna 1_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea357ee5d57ba4d80800000000000000
+      internalID: -8265592554433064018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fauna 1_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62d6de323ee3f0a0800000000000000
+      internalID: -6848868708730350993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fauna 1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 209228d44a60f5280800000000000000
+      internalID: -9052509423246628606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fauna 1_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d80358eefc956700800000000000000
+      internalID: 533004749546653906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fauna 1_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c409de7d501a5b7b0800000000000000
+      internalID: -5209080347514531764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fauna 1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25652b2e45abdd40800000000000000
+      internalID: 5610259515969987882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fauna 1_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 745a7dccb08947130800000000000000
+      internalID: 3563640381605651783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fauna 1_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4964bb7f18b3e50800000000000000
+      internalID: 6790163764190024955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9900ae383fa98cd408f05eaa632f599b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      fauna 1_0: -7885302545343246646
+      fauna 1_1: -8265592554433064018
+      fauna 1_2: -6848868708730350993
+      fauna 1_3: -9052509423246628606
+      fauna 1_4: 533004749546653906
+      fauna 1_5: -5209080347514531764
+      fauna 1_6: 5610259515969987882
+      fauna 1_7: 3563640381605651783
+      fauna 1_8: 6790163764190024955
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

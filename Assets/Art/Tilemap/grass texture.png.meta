@@ -1,0 +1,549 @@
+fileFormatVersion: 2
+guid: d38dcbce8c84a3b4ea9b11fcb490d49e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6690426305931645323
+    second: grass texture_0
+  - first:
+      213: -717086699443791596
+    second: grass texture_1
+  - first:
+      213: 8553521401981432663
+    second: grass texture_2
+  - first:
+      213: 3218119539694310327
+    second: grass texture_3
+  - first:
+      213: -296936478686736363
+    second: grass texture_4
+  - first:
+      213: 5271827912062943397
+    second: grass texture_5
+  - first:
+      213: 1453304881367654394
+    second: grass texture_6
+  - first:
+      213: -8019029820204984233
+    second: grass texture_7
+  - first:
+      213: 5554450123184514048
+    second: grass texture_8
+  - first:
+      213: -5775798540031135508
+    second: grass texture_9
+  - first:
+      213: -2223642458805085035
+    second: grass texture_10
+  - first:
+      213: -3090854644872880066
+    second: grass texture_11
+  - first:
+      213: 1485036547927692886
+    second: grass texture_12
+  - first:
+      213: -2271362737549494710
+    second: grass texture_13
+  - first:
+      213: -1881125782766594497
+    second: grass texture_14
+  - first:
+      213: 909301590650730938
+    second: grass texture_15
+  - first:
+      213: -301823025575662254
+    second: grass texture_16
+  - first:
+      213: -4731880341426925426
+    second: grass texture_17
+  - first:
+      213: -4682328783934623557
+    second: grass texture_18
+  - first:
+      213: -2227345828580271586
+    second: grass texture_19
+  - first:
+      213: 6860361028377105811
+    second: grass texture_20
+  - first:
+      213: -3720151493997976606
+    second: grass texture_21
+  - first:
+      213: 4306449156249830667
+    second: grass texture_22
+  - first:
+      213: 8060670864101448067
+    second: grass texture_23
+  - first:
+      213: -1312946891727641120
+    second: grass texture_24
+  - first:
+      213: 5912152508656072273
+    second: grass texture_25
+  - first:
+      213: 7598085436459625312
+    second: grass texture_26
+  - first:
+      213: 1525704608932276910
+    second: grass texture_27
+  - first:
+      213: 3695245940610564354
+    second: grass texture_28
+  - first:
+      213: -5872775144639530491
+    second: grass texture_29
+  - first:
+      213: -7837136260166573149
+    second: grass texture_30
+  - first:
+      213: -4340133871834264977
+    second: grass texture_31
+  - first:
+      213: -867632379643611248
+    second: grass texture_32
+  - first:
+      213: -3053278551098373611
+    second: grass texture_33
+  - first:
+      213: -5342808777286086828
+    second: grass texture_34
+  - first:
+      213: -5453330682518660124
+    second: grass texture_35
+  - first:
+      213: -5855714764652636517
+    second: grass texture_36
+  - first:
+      213: -7236515955863968731
+    second: grass texture_37
+  - first:
+      213: 6014392438074199194
+    second: grass texture_38
+  - first:
+      213: 4540262144138246493
+    second: grass texture_39
+  - first:
+      213: -889469768908365382
+    second: grass texture_40
+  - first:
+      213: 5781715319960967275
+    second: grass texture_41
+  - first:
+      213: 2298590098846964975
+    second: grass texture_42
+  - first:
+      213: -8548693680420522366
+    second: grass texture_43
+  - first:
+      213: 904244735625564369
+    second: grass texture_44
+  - first:
+      213: -377573834238137664
+    second: grass texture_45
+  - first:
+      213: 1593585803712633547
+    second: grass texture_46
+  - first:
+      213: 892197637401529572
+    second: grass texture_47
+  - first:
+      213: -3389971707002878674
+    second: grass texture_48
+  - first:
+      213: -2199701706901175937
+    second: grass texture_49
+  - first:
+      213: -6717070876941929915
+    second: grass texture_50
+  - first:
+      213: 756281270409978959
+    second: grass texture_51
+  - first:
+      213: -7319505936881358413
+    second: grass texture_52
+  - first:
+      213: 5491883193652542155
+    second: grass texture_53
+  - first:
+      213: 1923084402250359608
+    second: grass texture_54
+  - first:
+      213: -6374873228627428928
+    second: grass texture_55
+  - first:
+      213: -7638664710640105287
+    second: grass texture_56
+  - first:
+      213: -5114244720068839195
+    second: grass texture_57
+  - first:
+      213: -3094817140837992033
+    second: grass texture_58
+  - first:
+      213: -3263123527947913756
+    second: grass texture_59
+  - first:
+      213: 6448785098617747837
+    second: grass texture_60
+  - first:
+      213: -7626196388260113937
+    second: grass texture_61
+  - first:
+      213: -647104629556968615
+    second: grass texture_62
+  - first:
+      213: -210643573605672888
+    second: grass texture_63
+  - first:
+      213: 1756499892700927543
+    second: grass texture_64
+  - first:
+      213: 2612938240264651640
+    second: grass texture_65
+  - first:
+      213: -5766297708802588412
+    second: grass texture_66
+  - first:
+      213: 5312897343887818479
+    second: grass texture_67
+  - first:
+      213: 847197913779932841
+    second: grass texture_68
+  - first:
+      213: -5357055374770140767
+    second: grass texture_69
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grass texture_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b811cf0274b29dc50800000000000000
+      internalID: 6690426305931645323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass texture_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419de7632756c06f0800000000000000
+      internalID: -717086699443791596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass texture_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 753fdc7856634b670800000000000000
+      internalID: 8553521401981432663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass texture_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b31938cbae09ac20800000000000000
+      internalID: 3218119539694310327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass texture_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510950b88d111ebf0800000000000000
+      internalID: -296936478686736363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass texture_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a0408ffd8b492940800000000000000
+      internalID: 5271827912062943397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass texture_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff9244f61d2b2410800000000000000
+      internalID: 1453304881367654394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass texture_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758da6b7ddea6b090800000000000000
+      internalID: -8019029820204984233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass texture_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004a90355fe551d40800000000000000
+      internalID: 5554450123184514048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 98d8a6a70352d3542b00ca70301a26e1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      grass texture_0: 6690426305931645323
+      grass texture_1: -717086699443791596
+      grass texture_2: 8553521401981432663
+      grass texture_3: 3218119539694310327
+      grass texture_4: -296936478686736363
+      grass texture_5: 5271827912062943397
+      grass texture_6: 1453304881367654394
+      grass texture_7: -8019029820204984233
+      grass texture_8: 5554450123184514048
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
