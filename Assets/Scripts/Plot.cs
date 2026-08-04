@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Plot : MonoBehaviour
 {
@@ -8,16 +10,21 @@ public class Plot : MonoBehaviour
     [SerializeField] private Color hoverColor;
  
     public GameObject towerObj;
+    public GameObject seedPrefab;
     public Turret turret;
     public TurretSlowmo slowmo;
     public SolarRayTower solar;
     public TreeHugger tree;
     private Color startColor;
+    private float seedTime;
+
+    private Transform target;
 
     //Set plot color to starting color
     private void Start()
     {
         startColor = sr.color;
+        target = transform;
     }
 
     //If the mouse hovers over the plot, change the color
@@ -78,11 +85,28 @@ public class Plot : MonoBehaviour
         }
 
         LevelManager.main.SpendCurrency(towerToBuild.cost);
+        StartCoroutine(WaitForSeed());
+    }
+
+    IEnumerator WaitForSeed()
+    {
+        Tower towerToBuild = BuildManager.main.GetSelectedTower();
+
+        FireSeed();
+
+        yield return new WaitForSeconds(2f);
         towerObj = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         turret = towerObj.GetComponent<Turret>();
         slowmo = towerObj.GetComponent<TurretSlowmo>();
         solar = towerObj.GetComponent<SolarRayTower>();
         tree = towerObj.GetComponent<TreeHugger>();
+    }
+
+    public void FireSeed()
+    {
+        GameObject seedObj = Instantiate(seedPrefab, LevelManager.main.seedStartPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
+        SeedAnimation seedScript = seedObj.GetComponent<SeedAnimation>();
+        seedScript.SetTarget(target);
     }
 
     public Vector3 getPlot()

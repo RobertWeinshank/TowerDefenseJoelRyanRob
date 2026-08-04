@@ -10,6 +10,16 @@ public class LevelManager : MonoBehaviour
     //Enemy path that they take (The orange points in the game)
     public Transform[] path;
     public Transform[] secondaryPath;
+    public Transform seedStartPoint;
+
+    public GameObject[] quadrant1;
+    public GameObject[] quadrant2;
+    public GameObject[] quadrant3;
+
+    public GameObject smog;
+    public GameObject smog1;
+    public GameObject smog2;
+
 
     public int currency;
     public int health;
@@ -27,9 +37,11 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currency = 100;
-        health = 100;
+        currency = 600;
+        health = 300;
         gaiaEnergy = 0;
+
+        
     }
 
     private void Update()
@@ -42,6 +54,33 @@ public class LevelManager : MonoBehaviour
         {
             gaiaEnergy += 1; //increases the gaiaEnergy counter by 1 every 3 seconds
             energyCounter = 0;
+        }
+
+        if (currentWave == 2)
+        {
+            for (int i = 0; i < quadrant1.Length; i++)
+            {
+                quadrant1[i].SetActive(true);
+            }
+            smog.SetActive(false);
+        }
+
+        if (currentWave == 4)
+        {
+            for (int i = 0; i < quadrant2.Length; i++)
+            {
+                quadrant2[i].SetActive(true);
+            }
+            smog1.SetActive(false);
+        }
+
+        if (currentWave == 6)
+        {
+            for (int i = 0; i < quadrant3.Length; i++)
+            {
+                quadrant3[i].SetActive(true);
+            }
+            smog2.SetActive(false);
         }
     }
 

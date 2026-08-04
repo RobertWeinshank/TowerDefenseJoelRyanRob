@@ -4,7 +4,7 @@ using UnityEngine;
 public class OilCheckpoint : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Plot oilRigPlot;
+    [SerializeField] private GameObject oilRigPlot;
     [SerializeField] private GameObject oilRig;
 
     [Header("Attributes")]
@@ -20,7 +20,7 @@ public class OilCheckpoint : MonoBehaviour
             //eh.TakeDamage(20);
             EnemySpawner.onEnemyDestroy.Invoke();
             onPlot = true;
-            Instantiate(oilRig, oilRigPlot.getPlot(), Quaternion.identity);
+            Instantiate(oilRig, oilRigPlot.transform.position, Quaternion.identity);
             
         }
     }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using System.Collections;
 
 public class Turret : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
-    
+    [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
@@ -32,7 +34,8 @@ public class Turret : MonoBehaviour
         //Upgrade stuff
         bulletsPerSecondBase = bulletsPerSecond;
         targetingRangeBase = targetingRange;
-        upgradeButton.onClick.AddListener(Upgrade); //anytime you click the upgrade button, calls the upgrade method
+        upgradeButton.onClick.AddListener(UpgradePath1);
+        upgradeButton2.onClick.AddListener(UpgradePath2);//anytime you click the upgrade button, calls the upgrade method
     }
 
     void Update()
@@ -64,9 +67,19 @@ public class Turret : MonoBehaviour
     private void Shoot()
     {
         //Debug.Log("PEW PEW");
-        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
-        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
-        bulletScript.SetTarget(target);
+        if (level == 3)
+        {
+            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
+            Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+            bulletScript.ChangeDamage(5);
+            bulletScript.SetTarget(target);
+        }
+        else
+        {
+            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
+            Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+            bulletScript.SetTarget(target);
+        }  
     }
 
     private void FindTarget()
@@ -104,7 +117,7 @@ public class Turret : MonoBehaviour
         UIManager.main.SetHoveringState(false);
     }
 
-    public void Upgrade()
+    public void UpgradePath1() // Higher Fire Rate
     {
         if (CalculateCost() > LevelManager.main.currency)
         {
@@ -113,13 +126,31 @@ public class Turret : MonoBehaviour
 
         LevelManager.main.SpendCurrency(CalculateCost());
 
-        level++;
+        level = 5;
 
         bulletsPerSecond = CalculateBulletsPerSecond();
-        targetingRange = CalculateTargetingRange();
+        //targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
-        Debug.Log("New BPS: " + bulletsPerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        Debug.Log("Machine Gun");
+    }
+
+    public void UpgradePath2() // Sniper
+    {
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(CalculateCost());
+
+        level = 3;
+
+        bulletsPerSecond = CalculateBulletsPerSecond()/8f;
+        targetingRange = CalculateTargetingRange()*5f;
+
+        CloseUpgradeUI();
+        Debug.Log("Sniper");
     }
 
     private int CalculateCost()
@@ -134,6 +165,13 @@ public class Turret : MonoBehaviour
     private float CalculateTargetingRange()
     {
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
+    }
+
+    private IEnumerator ResetEnemeySpeed(EnemyMovement em)
+    {
+        yield return new WaitForSeconds(.5f);
+
+        em.ResetSpeed();
     }
     private void OnDrawGizmosSelected()
     {

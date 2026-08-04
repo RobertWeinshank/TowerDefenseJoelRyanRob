@@ -175,8 +175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: 2728958541271311608}
   animator: {fileID: 0}
+  spriteRenderer: {fileID: 8026649814472739589}
   moveSpeed: 1
-  damage: 3
+  damage: 0
 --- !u!114 &3002825257287373558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3020427e9e8cd49a5ce8d0a7c97187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  hitPoints: 6
-  currencyWorth: 75
+  hitPoints: 42
+  currencyWorth: 8
   isDestroyed: 0
 --- !u!95 &5411537137247574733
 Animator:
@@ -221,7 +222,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3679960628853816343}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}

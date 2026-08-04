@@ -9,6 +9,8 @@ public class SolarRayTower : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
+    [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
@@ -28,6 +30,9 @@ public class SolarRayTower : MonoBehaviour
     private float targetingRangeBase;
     private int level = 1;
 
+    private float damageOverTimeTimer;
+    private int fireDoTDamage = 1;
+
     private void Start()
     {
         raybeam = gameObject.AddComponent<DistanceJoint2D>();
@@ -39,7 +44,8 @@ public class SolarRayTower : MonoBehaviour
         //Upgrade stuff
         damagePerSecondBase = damagePerSecond;
         targetingRangeBase = targetingRange;
-        upgradeButton.onClick.AddListener(Upgrade); //anytime you click the upgrade button, calls the upgrade method
+        upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
+        upgradeButton2.onClick.AddListener(UpgradePath2);
     }
 
 
@@ -54,7 +60,7 @@ public class SolarRayTower : MonoBehaviour
             return;
         }
 
-        RotateTowardsTarget();
+        //RotateTowardsTarget();
 
         if (!CheckTargetIsInRange())
         {
@@ -64,12 +70,22 @@ public class SolarRayTower : MonoBehaviour
         else //if there are targets in range, shoot
         {
             timeUntilFire += Time.deltaTime;
+            damageOverTimeTimer = 2;
             FireRaybeam(target); //Display the raybeam at the target in range
 
             if (timeUntilFire >= 1f / damagePerSecond)
             {               
                 Solarbeam();//Deal damage to enemy                
             }
+            if (level == 3)
+            {
+                //if (damageOverTimeTimer > 0)
+                //{
+                //    FireDamage();
+                //    damageOverTimeTimer -= Time.deltaTime;
+                //}
+            }
+
         }
     }
 
@@ -82,6 +98,11 @@ public class SolarRayTower : MonoBehaviour
         {
             StopRaybeam();//Stop the raybeam if the target's hp is 0 or is destroyed
         }
+    }
+
+    private void FireDamage()
+    {
+        target.gameObject.GetComponent<EnemyHealth>().TakeDamage(fireDoTDamage);
     }
 
     private void FindTarget()
@@ -136,7 +157,7 @@ public class SolarRayTower : MonoBehaviour
         UIManager.main.SetHoveringState(false);
     }
 
-    public void Upgrade()
+    public void UpgradePath1() //Ramping Damage
     {
         if (CalculateCost() > LevelManager.main.currency)
         {
@@ -145,13 +166,34 @@ public class SolarRayTower : MonoBehaviour
 
         LevelManager.main.SpendCurrency(CalculateCost());
 
-        level++;
+        level = 2;
 
         damagePerSecond = CalculateDamagePerSecond();
         targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
-        Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        Debug.Log("Ramping damage");
+
+    }
+
+    public void UpgradePath2() //Damage over Time
+    {
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(CalculateCost());
+
+        level = 3;
+
+        //damagePerSecond = CalculateDamagePerSecond();
+        //targetingRange = CalculateTargetingRange();
+
+        CloseUpgradeUI();
+        //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        Debug.Log("Damage over time");
     }
 
     private int CalculateCost()

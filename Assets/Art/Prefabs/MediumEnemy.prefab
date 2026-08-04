@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 526744422870116390}
   m_Layer: 6
   m_Name: MediumEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.47, y: 0.47, z: 0.47}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,8 +87,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.42863622, g: 0.020469915, b: 0.8679245, a: 1}
+  m_Sprite: {fileID: -5471411670645952609, guid: 7a6b9438a32621c4eb72c85c744a9b1b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -175,7 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: 2728958541271311608}
   animator: {fileID: -7022798929604098606}
-  moveSpeed: 2
+  spriteRenderer: {fileID: 8026649814472739589}
+  moveSpeed: 0.8
   damage: 2
 --- !u!114 &3002825257287373558
 MonoBehaviour:
@@ -189,8 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3020427e9e8cd49a5ce8d0a7c97187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  hitPoints: 4
-  currencyWorth: 65
+  hitPoints: 32
+  currencyWorth: 6
   isDestroyed: 0
 --- !u!95 &-7022798929604098606
 Animator:
@@ -227,7 +228,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1aa0068830a4548b0a7af7e6de4b65e9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.279
+  m_Volume: 0.303
   m_Pitch: 1
   Loop: 1
   Mute: 0

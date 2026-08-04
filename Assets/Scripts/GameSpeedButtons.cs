@@ -26,6 +26,6 @@ public class GameSpeedButtons : MonoBehaviour
 
     public void DoubleSpeedButton()
     {
-        Time.timeScale = 2f;
+        Time.timeScale = 4f;
     }
 }
