@@ -18,6 +18,10 @@ public class SolarRayTower : MonoBehaviour
     [SerializeField] private int raybeamDamage = 1;
     [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
 
+    [Header("Audio")]
+    [SerializeField] public AudioSource audioSource;
+    [SerializeField] public AudioClip fireClip;
+
     private Transform target;
     private float timeUntilFire;
 
@@ -28,6 +32,7 @@ public class SolarRayTower : MonoBehaviour
     private float damagePerSecondBase;
     private float targetingRangeBase;
     private int level = 1;
+    private bool isFiring = false;
 
     private float damageOverTimeTimer;
     private int fireDoTDamage = 1;
@@ -45,58 +50,62 @@ public class SolarRayTower : MonoBehaviour
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
         upgradeButton2.onClick.AddListener(UpgradePath2);
+        audioSource = GetComponent<AudioSource>();
     }
 
 
     private void Update()
+{
+    line.SetPosition(0, firingPoint.position);
+
+    if (target == null)
     {
-        line.SetPosition(0, firingPoint.position); //Create the line at the fire point
+        FindTarget();
+        return;
+    }
 
-        if (target == null)
+    if (!CheckTargetIsInRange())
+    {
+        target = null;
+        
+        // Only trigger the stop logic ONCE when target drops out of range
+        if (isFiring)
         {
-            
-            FindTarget();
-            return;
-        }
-
-        //RotateTowardsTarget();
-
-        if (!CheckTargetIsInRange())
-        {
-            target = null;
-            StopRaybeam(); //If no targets are in range, stop the raybeam cast
-        }
-        else //if there are targets in range, shoot
-        {
-            timeUntilFire += Time.deltaTime;
-            damageOverTimeTimer = 2;
-            FireRaybeam(target); //Display the raybeam at the target in range
-
-            if (timeUntilFire >= 1f / damagePerSecond)
-            {               
-                Solarbeam();//Deal damage to enemy                
-            }
-            if (level == 3)
-            {
-                //if (damageOverTimeTimer > 0)
-                //{
-                //    FireDamage();
-                //    damageOverTimeTimer -= Time.deltaTime;
-                //}
-            }
-
+            StopRaybeam();
         }
     }
+    else 
+    {
+        timeUntilFire += Time.deltaTime;
+        damageOverTimeTimer = 2;
+        
+        // FIXED: Only trigger the start logic ONCE when firing begins
+        if (!isFiring)
+        {
+            StartRaybeam(target);
+        }
+        else
+        {
+            // Continuously update the laser positions while active
+            raybeam.connectedAnchor = target.position;
+            line.SetPosition(1, target.position);
+        }
+
+        if (timeUntilFire >= 1f / damagePerSecond)
+        { 
+            Solarbeam(); 
+        }
+    }
+}
+
 
     private void Solarbeam()
     {
-        target.gameObject.GetComponent<EnemyHealth>().TakeDamage(raybeamDamage); //call enemeyHealth script to deal raybeam damage
-        //Debug.Log(target.gameObject.GetComponent<EnemyHealth>().hitPoints + "Hitpoints");
-        timeUntilFire = 0f; //Reset fire time
         if (target.gameObject.GetComponent<EnemyHealth>().hitPoints == 0 || target.gameObject.GetComponent<EnemyHealth>().isDestroyed)
-        {
-            StopRaybeam();//Stop the raybeam if the target's hp is 0 or is destroyed
-        }
+    {
+        StopRaybeam(); // Safely resets audio trackers when enemy dies
+    }
+
     }
 
     private void FireDamage()
@@ -128,22 +137,36 @@ public class SolarRayTower : MonoBehaviour
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
 
-    private void FireRaybeam(Transform hit)
+ private void StartRaybeam(Transform hit)
+{
+    isFiring = true; // Flips the state tracker on
+    raybeam.enabled = true;
+    raybeam.connectedAnchor = hit.position;
+    line.enabled = true;
+    line.SetPosition(1, hit.position);
+ 
+    if (audioSource != null && fireClip != null)
     {
-        //set the raybeam's location to the enemy's position
-        raybeam.enabled = true;
-        raybeam.connectedAnchor = hit.position;
-
-        line.enabled = true;
-        line.SetPosition(1, hit.position);
+        Debug.Log("LASER AUDIO STARTING!"); // This will now fire cleanly!
+        audioSource.clip = fireClip;
+        audioSource.loop = true; 
+        audioSource.Play();
     }
+}
 
-    private void StopRaybeam()
+private void StopRaybeam()
+{
+    isFiring = false; // Flips the state tracker off
+    raybeam.enabled = false;
+    line.enabled = false;
+
+    if (audioSource != null && audioSource.isPlaying)
     {
-        //Debug.Log("Stopping laser");
-        raybeam.enabled = false;
-        line.enabled = false;
+        Debug.Log("LASER AUDIO STOPPING!");
+        audioSource.Stop();
     }
+}
+
 
     public void OpenUpgradeUI()
     {
