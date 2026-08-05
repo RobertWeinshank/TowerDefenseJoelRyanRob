@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -10,6 +10,10 @@ public class TurretSlowmo : MonoBehaviour
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+
+    [Header("Audio Settings")]
+    [SerializeField] public AudioClip slowmoClip; // Drag your slow-mo / pulse sound here!
+    private AudioSource audioSource;               // Captured automatically in Start()
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
@@ -26,6 +30,9 @@ public class TurretSlowmo : MonoBehaviour
     private int level = 1;
     private bool slowEnemy = true;
 
+    // Cooldown tracker to prevent Level 3 from spamming the audio card 60 times a second
+    private float audioCooldownTimer; 
+
     private void Start()
     {
         //Upgrade stuff
@@ -33,16 +40,23 @@ public class TurretSlowmo : MonoBehaviour
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
         upgradeButton2.onClick.AddListener(UpgradePath2);
+
+        // FIX: Automatically grabs the AudioSource attached to this Prefab clone!
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        // Track the audio cooldown over time
+        if (audioCooldownTimer > 0)
+        {
+            audioCooldownTimer -= Time.deltaTime;
+        }
 
         if (level == 3)
         {
             FreezeEnemies();
         }
-        
         else
         {
             timeUntilFire += Time.deltaTime;
@@ -52,7 +66,6 @@ public class TurretSlowmo : MonoBehaviour
                 timeUntilFire = 0f;
             }
         }
-        
     }
 
     private void FreezeEnemies()
@@ -61,6 +74,14 @@ public class TurretSlowmo : MonoBehaviour
 
         if (hits.Length > 0)
         {
+            // AUDIO TRIGGER: Play the sound effect once per firing pulse
+            // If level == 3, the cooldown ensures it only plays once every 0.3 seconds instead of tearing up the speakers
+            if (audioSource != null && slowmoClip != null && audioCooldownTimer <= 0)
+            {
+                audioSource.PlayOneShot(slowmoClip);
+                audioCooldownTimer = (level == 3) ? 0.3f : 0.05f; 
+            }
+
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
