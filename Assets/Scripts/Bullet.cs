@@ -5,7 +5,6 @@ public class Bullet : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] public AudioClip impactSound;
 
     [Header("Atrributes")]
     [SerializeField] private float bulletSpeed = 5f;
@@ -45,7 +44,6 @@ public class Bullet : MonoBehaviour
     {
         EnemyMovement em = other.transform.GetComponent<EnemyMovement>();
         other.gameObject.GetComponent<EnemyHealth>().TakeDamage(bulletDamage); //On bullet collision, take damage
-        AudioSource.PlayClipAtPoint(impactSound, transform.position);
         Destroy(gameObject); //destroy bullet after collision
         StartCoroutine(ResetEnemeySpeed(em));
     }
