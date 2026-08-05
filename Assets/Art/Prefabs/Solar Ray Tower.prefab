@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4758734522771111179, guid: 060ea4859add06b49af69b1839ec209f, type: 3}
-  m_Color: {r: 0.97122633, g: 1, b: 0.19339621, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -232,8 +232,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.18431373, g: 0.61960787, b: 0.23137257, a: 1}
-      key1: {r: 0.9528302, g: 0.9285433, b: 0.29214135, a: 1}
+      key0: {r: 0.6901961, g: 0.6784314, b: 0.882353, a: 1}
+      key1: {r: 0.6039216, g: 0.8705883, b: 0.8078432, a: 0.3137255}
       key2: {r: 0.9528302, g: 0.9285433, b: 0.29214135, a: 0}
       key3: {r: 0.9528302, g: 0.9285433, b: 0.29214135, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -517,7 +517,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4770978715855894497, guid: e965afe9a389d874baadc7d9ddaa7e3c, type: 3}
-  m_Color: {r: 0.23113209, g: 1, b: 0.387512, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

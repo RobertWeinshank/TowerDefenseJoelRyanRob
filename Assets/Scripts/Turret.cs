@@ -132,6 +132,7 @@ public class Turret : MonoBehaviour
         //targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
+        Destroy(upgradeUI);
         Debug.Log("Machine Gun");
     }
 
@@ -150,6 +151,7 @@ public class Turret : MonoBehaviour
         targetingRange = CalculateTargetingRange()*5f;
 
         CloseUpgradeUI();
+        Destroy(upgradeUI);
         Debug.Log("Sniper");
     }
 
