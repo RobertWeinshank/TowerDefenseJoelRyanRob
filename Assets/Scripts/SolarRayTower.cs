@@ -18,6 +18,10 @@ public class SolarRayTower : MonoBehaviour
     [SerializeField] private int raybeamDamage = 1;
     [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
 
+    [Header("Audio")]
+    [SerializeField] public AudioSource audioSource;
+    [SerializeField] public AudioClip fireClip;
+
     private Transform target;
     private float timeUntilFire;
 
@@ -28,6 +32,7 @@ public class SolarRayTower : MonoBehaviour
     private float damagePerSecondBase;
     private float targetingRangeBase;
     private int level = 1;
+    private bool isFiring = false;
 
     private float damageOverTimeTimer;
     private int fireDoTDamage = 1;
@@ -45,6 +50,7 @@ public class SolarRayTower : MonoBehaviour
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
         upgradeButton2.onClick.AddListener(UpgradePath2);
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -54,23 +60,41 @@ public class SolarRayTower : MonoBehaviour
 
         if (target == null)
         {
-            
+            if (isFiring)
+            {
+                StopRaybeam();
+            }
+            target = null;
             FindTarget();
             return;
         }
 
         //RotateTowardsTarget();
+        line.SetPosition(0, firingPoint.position);
 
         if (!CheckTargetIsInRange())
         {
             target = null;
-            StopRaybeam(); //If no targets are in range, stop the raybeam cast
+            if (isFiring)
+            {
+                StopRaybeam(); //If no targets are in range, stop the raybeam cast
+            }
+             
         }
         else //if there are targets in range, shoot
         {
             timeUntilFire += Time.deltaTime;
             damageOverTimeTimer = 2;
-            FireRaybeam(target); //Display the raybeam at the target in range
+            //FireRaybeam(target); //Display the raybeam at the target in range
+            if (!isFiring)
+            {
+                StartRaybeam(target);
+            }
+            else
+            {
+                raybeam.connectedAnchor = target.position;
+                line.SetPosition(1, target.position);
+            }
 
             if (timeUntilFire >= 1f / damagePerSecond)
             {               
@@ -91,24 +115,44 @@ public class SolarRayTower : MonoBehaviour
     private void Solarbeam()
     {
         target.gameObject.GetComponent<EnemyHealth>().TakeDamage(raybeamDamage); //call enemeyHealth script to deal raybeam damage
+        EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
         //Debug.Log(target.gameObject.GetComponent<EnemyHealth>().hitPoints + "Hitpoints");
         timeUntilFire = 0f; //Reset fire time
         if (target.gameObject.GetComponent<EnemyHealth>().hitPoints == 0 || target.gameObject.GetComponent<EnemyHealth>().isDestroyed)
         {
             StopRaybeam();//Stop the raybeam if the target's hp is 0 or is destroyed
+            target = null;
+            return;
+        }
+        
+        FireDamage();
+        timeUntilFire = 0f;
+
+        // Re-verify immediately if FireDamage finished them off
+        if (target == null || target.gameObject == null || enemyHealth.hitPoints <= 0 || enemyHealth.isDestroyed)
+        {
+            StopRaybeam();
+            target = null;
         }
     }
 
     private void FireDamage()
     {
-        target.gameObject.GetComponent<EnemyHealth>().TakeDamage(fireDoTDamage);
+        if (target != null && target.gameObject != null)
+        {
+            EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(fireDoTDamage);
+            }
+        }
     }
 
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask); //Takes the turret positin, range, direction (our position in vector2), distance from target, and layermask
 
-        if (hits.Length > 0)
+        if (hits.Length > 0 && hits[0].transform != null)
         {
             target = hits[0].transform; //turret finds a target in range
         }
@@ -141,8 +185,30 @@ public class SolarRayTower : MonoBehaviour
     private void StopRaybeam()
     {
         //Debug.Log("Stopping laser");
+        isFiring = false;
         raybeam.enabled = false;
         line.enabled = false;
+
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
+
+    private void StartRaybeam(Transform hit)
+    {
+        isFiring = true;
+        raybeam.enabled = true;
+        raybeam.connectedAnchor = hit.position;
+        line.enabled = true;
+        line.SetPosition(1, hit.position);
+
+        if (audioSource != null && fireClip != null)
+        {
+            audioSource.clip = fireClip;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
     }
 
     public void OpenUpgradeUI()

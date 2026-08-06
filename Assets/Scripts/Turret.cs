@@ -15,6 +15,10 @@ public class Turret : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
 
+    [Header("Audio Settings")]
+    [SerializeField] public AudioClip ambientLoopClip;
+    [SerializeField] public AudioClip shootClip;
+
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
@@ -29,6 +33,9 @@ public class Turret : MonoBehaviour
     private float targetingRangeBase;
     private int level = 1;
 
+    private AudioSource ambientAudioSource;
+    private AudioSource weaponAudioSource;
+
     private void Start()
     {
         //Upgrade stuff
@@ -36,6 +43,22 @@ public class Turret : MonoBehaviour
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1);
         upgradeButton2.onClick.AddListener(UpgradePath2);//anytime you click the upgrade button, calls the upgrade method
+
+        AudioSource[] sources = GetComponents<AudioSource>();
+        if (sources.Length >= 2)
+        {
+            ambientAudioSource = sources[0];
+            weaponAudioSource = sources[1];
+        }
+        else if (sources.Length == 1)
+        {
+            // Fallback safety if only one is attached
+            weaponAudioSource = sources[0];
+            Debug.LogWarning("Please add a SECOND Audio Source to the " + gameObject.name + " prefab for the ambient loop.");
+        }
+
+        // Start playing the ambient sound automatically as soon as the turret is built/spawned
+        StartAmbientLoop();
     }
 
     void Update()
@@ -64,8 +87,23 @@ public class Turret : MonoBehaviour
         }
     }
 
+    private void StartAmbientLoop()
+    {
+        if (ambientAudioSource != null && ambientLoopClip != null)
+        {
+            ambientAudioSource.clip = ambientLoopClip;
+            ambientAudioSource.loop = true; // Make it run endlessly
+            ambientAudioSource.playOnAwake = false;
+            ambientAudioSource.Play();
+        }
+    }
     private void Shoot()
     {
+        if (weaponAudioSource != null && shootClip != null)
+        {
+            weaponAudioSource.PlayOneShot(shootClip);
+        }
+
         //Debug.Log("PEW PEW");
         if (level == 3)
         {

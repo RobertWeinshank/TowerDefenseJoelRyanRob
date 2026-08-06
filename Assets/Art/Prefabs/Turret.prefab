@@ -1007,6 +1007,8 @@ MonoBehaviour:
   upgradeUI: {fileID: 615289607545867256}
   upgradeButton: {fileID: 5021747633653151298}
   upgradeButton2: {fileID: 5343019337254405032}
+  ambientLoopClip: {fileID: 8300000, guid: 48890cd28687fb1478f0b983c0325d95, type: 3}
+  shootClip: {fileID: 8300000, guid: b0c3cc19c79413941aba21caf1751742, type: 3}
   targetingRange: 3
   rotationSpeed: 200
   bulletsPerSecond: 0.8

@@ -331,6 +331,8 @@ MonoBehaviour:
   damagePerSecond: 4
   raybeamDamage: 1
   baseUpgradeCost: 100
+  audioSource: {fileID: 0}
+  fireClip: {fileID: 8300000, guid: 38ef3204c24ffac4487ec73ad5671e2a, type: 3}
 --- !u!114 &-5864165950468736298
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -940,6 +940,7 @@ MonoBehaviour:
   upgradeUI: {fileID: 5812790373024836302}
   upgradeButton: {fileID: 3500252287340034256}
   upgradeButton2: {fileID: 6529121487540828832}
+  slowmoClip: {fileID: 8300000, guid: 86871b785b4b71f49bd0c209e97fbae3, type: 3}
   targetingRange: 2
   attackSpeed: 0.337
   freezeTime: 0.8

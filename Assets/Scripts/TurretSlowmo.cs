@@ -11,6 +11,10 @@ public class TurretSlowmo : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
 
+    [Header("Audio Settings")]
+    [SerializeField] public AudioClip slowmoClip;
+    private AudioSource audioSource;
+
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float attackSpeed = 4f;
@@ -26,6 +30,8 @@ public class TurretSlowmo : MonoBehaviour
     private int level = 1;
     private bool slowEnemy = true;
 
+    private float audioCooldownTimer;
+
     private void Start()
     {
         //Upgrade stuff
@@ -33,6 +39,9 @@ public class TurretSlowmo : MonoBehaviour
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
         upgradeButton2.onClick.AddListener(UpgradePath2);
+
+        // FIX: Automatically grabs the AudioSource attached to this Prefab clone!
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -61,6 +70,12 @@ public class TurretSlowmo : MonoBehaviour
 
         if (hits.Length > 0)
         {
+            if (audioSource != null && slowmoClip != null && audioCooldownTimer <= 0)
+            {
+                audioSource.PlayOneShot(slowmoClip);
+                audioCooldownTimer = (level == 3) ? 0.3f : 0.05f;
+            }
+
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
