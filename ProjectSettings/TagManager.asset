@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - PumpJack
+  - PumpJackEnemy
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -43,6 +46,9 @@ TagManager:
     locked: 0
   - name: Turrets
     uniqueID: 3520863127
+    locked: 0
+  - name: UI
+    uniqueID: 3502036437
     locked: 0
   m_RenderingLayers:
   - Default

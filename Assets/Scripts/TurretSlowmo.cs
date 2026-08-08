@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -7,24 +7,61 @@ public class TurretSlowmo : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private UnityEngine.UI.Button upgradeButton;
+    [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+
+    [Header("Audio Settings")]
+    [SerializeField] public AudioClip slowmoClip;
+    private AudioSource audioSource;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float attackSpeed = 4f;
     [SerializeField] private float freezeTime = 1f;
     [SerializeField] private int damage = 1;
+    [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
 
     private float timeUntilFire;
 
+    //upgrade stuff
+    private float attackSpeedBase;
+    private float targetingRangeBase;
+    private int level = 1;
+    private bool slowEnemy = true;
+
+    private float audioCooldownTimer;
+
+    private void Start()
+    {
+        //Upgrade stuff
+        attackSpeedBase = attackSpeed;
+        targetingRangeBase = targetingRange;
+        upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
+        upgradeButton2.onClick.AddListener(UpgradePath2);
+
+        // FIX: Automatically grabs the AudioSource attached to this Prefab clone!
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
-        timeUntilFire += Time.deltaTime;
 
-        if (timeUntilFire >= 1f / attackSpeed)
+        if (level == 3)
         {
             FreezeEnemies();
-            timeUntilFire = 0f;
         }
+        
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+            if (timeUntilFire >= 1f / attackSpeed)
+            {
+                FreezeEnemies();
+                timeUntilFire = 0f;
+            }
+        }
+        
     }
 
     private void FreezeEnemies()
@@ -33,18 +70,41 @@ public class TurretSlowmo : MonoBehaviour
 
         if (hits.Length > 0)
         {
+            if (audioSource != null && slowmoClip != null && audioCooldownTimer <= 0)
+            {
+                audioSource.PlayOneShot(slowmoClip);
+                audioCooldownTimer = (level == 3) ? 0.3f : 0.05f;
+            }
+
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
-
                 EnemyMovement em = hit.transform.GetComponent<EnemyMovement>(); //Gets the enemy movement script of any enemy hit by the raycast
-                em.UpdateSpeed(0.5f);//Updates the speed once you get the script
 
                 EnemyHealth eh = hits[i].transform.GetComponent<EnemyHealth>(); //Damages the enemy overtime
-                eh.TakeDamage(damage);
                 //Debug.Log("Enemy taking rain damage");
-
-                StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                if (level == 3)
+                {
+                    em.UpdateSpeed(0.5f);
+                    if (!slowEnemy)
+                    {
+                        StartCoroutine(ResetEnemeySpeed(em));
+                    }
+                }
+                else if (level == 2)
+                {
+                    //StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                    eh.TakeDamage(damage);
+                }
+                else
+                {
+                    em.UpdateSpeed(0.5f);
+                    eh.TakeDamage(damage);
+                    if (!slowEnemy)
+                    {
+                        StartCoroutine(ResetEnemeySpeed(em));
+                    }
+                }
             }
         }
     }
@@ -56,9 +116,85 @@ public class TurretSlowmo : MonoBehaviour
         em.ResetSpeed();
     }
 
+    public void OpenUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+    }
+
+    public void CloseUpgradeUI()
+    {
+        upgradeUI.SetActive(false);
+        UIManager.main.SetHoveringState(false);
+    }
+
+    public void UpgradePath1() //Lethal Damage
+    {
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(CalculateCost());
+
+        level = 2;
+
+        attackSpeed = CalculateAttackSpeed();
+        targetingRange = CalculateTargetingRange();
+
+        CloseUpgradeUI();
+
+        Debug.Log("Lethal");
+    }
+    public void UpgradePath2() //Super Slow
+    {
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(CalculateCost());
+
+        level = 3;
+
+        attackSpeed = CalculateAttackSpeed();
+        targetingRange = CalculateTargetingRange();
+
+        CloseUpgradeUI();
+
+        Debug.Log("Super Slow");
+    }
+    private int CalculateCost()
+    {
+        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
+    }
+
+    private float CalculateAttackSpeed()
+    {
+        return attackSpeedBase * Mathf.Pow(level, 0.6f);
+    }
+    private float CalculateTargetingRange()
+    {
+        return targetingRangeBase * Mathf.Pow(level, 0.4f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            slowEnemy = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+           slowEnemy = false;
+        }
+    }
     private void OnDrawGizmosSelected()
     {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+        //Handles.color = Color.cyan;
+        //Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
 }

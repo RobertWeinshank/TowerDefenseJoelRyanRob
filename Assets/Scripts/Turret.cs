@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
+using System.Collections;
 
 public class Turret : MonoBehaviour
 {
@@ -9,14 +11,58 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
-    
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private UnityEngine.UI.Button upgradeButton;
+    [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    [SerializeField] private UnityEngine.UI.Button sellButton;
+
+    [Header("Audio Settings")]
+    [SerializeField] public AudioClip ambientLoopClip;
+    [SerializeField] public AudioClip shootClip;
+
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bulletsPerSecond = 1f;
+    [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
+    [SerializeField] private int sellAmount = 50;
 
     private Transform target;
     private float timeUntilFire;
+
+    //upgrade stuff
+    private float bulletsPerSecondBase;
+    private float targetingRangeBase;
+    private int level = 1;
+
+    private AudioSource ambientAudioSource;
+    private AudioSource weaponAudioSource;
+
+    private void Start()
+    {
+        //Upgrade stuff
+        bulletsPerSecondBase = bulletsPerSecond;
+        targetingRangeBase = targetingRange;
+        upgradeButton.onClick.AddListener(UpgradePath1);
+        upgradeButton2.onClick.AddListener(UpgradePath2);//anytime you click the upgrade button, calls the upgrade method
+        sellButton.onClick.AddListener(SellPath);
+
+        AudioSource[] sources = GetComponents<AudioSource>();
+        if (sources.Length >= 2)
+        {
+            ambientAudioSource = sources[0];
+            weaponAudioSource = sources[1];
+        }
+        else if (sources.Length == 1)
+        {
+            // Fallback safety if only one is attached
+            weaponAudioSource = sources[0];
+            Debug.LogWarning("Please add a SECOND Audio Source to the " + gameObject.name + " prefab for the ambient loop.");
+        }
+
+        // Start playing the ambient sound automatically as soon as the turret is built/spawned
+        StartAmbientLoop();
+    }
 
     void Update()
     {
@@ -44,12 +90,37 @@ public class Turret : MonoBehaviour
         }
     }
 
+    private void StartAmbientLoop()
+    {
+        if (ambientAudioSource != null && ambientLoopClip != null)
+        {
+            ambientAudioSource.clip = ambientLoopClip;
+            ambientAudioSource.loop = true; // Make it run endlessly
+            ambientAudioSource.playOnAwake = false;
+            ambientAudioSource.Play();
+        }
+    }
     private void Shoot()
     {
+        if (weaponAudioSource != null && shootClip != null)
+        {
+            weaponAudioSource.PlayOneShot(shootClip);
+        }
+
         //Debug.Log("PEW PEW");
-        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
-        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
-        bulletScript.SetTarget(target);
+        if (level == 3)
+        {
+            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
+            Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+            bulletScript.ChangeDamage(5);
+            bulletScript.SetTarget(target);
+        }
+        else
+        {
+            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
+            Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+            bulletScript.SetTarget(target);
+        }  
     }
 
     private void FindTarget()
@@ -76,10 +147,86 @@ public class Turret : MonoBehaviour
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
 
+    public void OpenUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+    }
+
+    public void CloseUpgradeUI()
+    {
+        upgradeUI.SetActive(false);
+        UIManager.main.SetHoveringState(false);
+    }
+
+    public void UpgradePath1() // Higher Fire Rate
+    {
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(CalculateCost());
+
+        level = 5;
+
+        bulletsPerSecond = CalculateBulletsPerSecond();
+        //targetingRange = CalculateTargetingRange();
+
+        CloseUpgradeUI();
+        Destroy(upgradeUI);
+        Debug.Log("Machine Gun");
+    }
+
+    public void UpgradePath2() // Sniper
+    {
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(CalculateCost());
+
+        level = 3;
+
+        bulletsPerSecond = CalculateBulletsPerSecond()/8f;
+        targetingRange = CalculateTargetingRange()*5f;
+
+        CloseUpgradeUI();
+        Destroy(upgradeUI);
+        Debug.Log("Sniper");
+    }
+
+    public void SellPath()
+    {
+        LevelManager.main.SpendCurrency(-sellAmount);
+        Debug.Log("Sell");
+        Destroy(this.gameObject);
+    }
+
+    private int CalculateCost()
+    {
+        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
+    }
+
+    private float CalculateBulletsPerSecond()
+    {
+        return bulletsPerSecondBase * Mathf.Pow(level, 0.6f);
+    }
+    private float CalculateTargetingRange()
+    {
+        return targetingRangeBase * Mathf.Pow(level, 0.4f);
+    }
+
+    private IEnumerator ResetEnemeySpeed(EnemyMovement em)
+    {
+        yield return new WaitForSeconds(.5f);
+
+        em.ResetSpeed();
+    }
     private void OnDrawGizmosSelected()
     {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+        //Handles.color = Color.cyan;
+        //Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
 
     

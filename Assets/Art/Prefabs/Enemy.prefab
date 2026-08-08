@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 471575530910219973}
   - component: {fileID: 3002825257287373558}
   - component: {fileID: -3831298069893214151}
-  - component: {fileID: -8588562012535158231}
+  - component: {fileID: -3246581117618300119}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,10 +85,10 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.509434, g: 0.12255251, b: 0.25345743, a: 1}
+  m_Sprite: {fileID: 2038344072699324289, guid: 784b1cf7fed7e1c40bd30a745ed155dd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -175,7 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: 2728958541271311608}
   animator: {fileID: -3831298069893214151}
-  moveSpeed: 2.5
+  spriteRenderer: {fileID: 8026649814472739589}
+  moveSpeed: 1.2
   damage: 1
 --- !u!114 &3002825257287373558
 MonoBehaviour:
@@ -189,8 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3020427e9e8cd49a5ce8d0a7c97187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  hitPoints: 3
-  currencyWorth: 50
+  hitPoints: 8
+  currencyWorth: 2
   isDestroyed: 0
 --- !u!95 &-3831298069893214151
 Animator:
@@ -214,7 +215,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!82 &-8588562012535158231
+--- !u!82 &-3246581117618300119
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,9 +226,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: c5fa6f2d924ce4ac0acfb2e6f1655576, type: 3}
+  m_Resource: {fileID: 8300000, guid: dd1d0c99fe88d4c45a1443607d6d64a1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.895
   m_Pitch: 1
   Loop: 1
   Mute: 0

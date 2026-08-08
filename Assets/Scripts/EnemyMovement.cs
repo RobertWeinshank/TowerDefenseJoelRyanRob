@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
@@ -26,26 +27,63 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        //If the enemy's position is on the targeted path location, increase pathIndex 
-        if (Vector2.Distance(target.position, transform.position) <= 0.1f)
+        if (LevelManager.main.currentWave <= 3)
         {
-            pathIndex++;
-            
+            //If the enemy's position is on the targeted path location, increase pathIndex 
+            if (Vector2.Distance(target.position, transform.position) <= 0.1f)
+            {
+                pathIndex++;
 
-            //If the enemy makes it to the end of the path, destroy the enemy; else set target's location equal to the next target on the path
-            if (pathIndex == LevelManager.main.path.Length)
-            {
-                EnemySpawner.onEnemyDestroy.Invoke(); //Call onEnemyDestroy method in Enemyspawner to destroy the enemy
-                LevelManager.main.ChangeHealth(damage); //Damage Gaia (the player)
-                //Debug.Log("PLAYER TOOK DAMAGE");
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                target = LevelManager.main.path[pathIndex]; //If they aren't at the end of the path, move to the next point
+
+                //If the enemy makes it to the end of the path, destroy the enemy; else set target's location equal to the next target on the path
+                if (pathIndex == LevelManager.main.path.Length)
+                {
+                    EnemySpawner.onEnemyDestroy.Invoke(); //Call onEnemyDestroy method in Enemyspawner to destroy the enemy
+                    LevelManager.main.ChangeHealth(damage); //Damage Gaia (the player)
+                                                            //Debug.Log("PLAYER TOOK DAMAGE");
+                    Destroy(gameObject);
+                    return;
+                }
+                else
+                {
+                    target = LevelManager.main.path[pathIndex]; //If they aren't at the end of the path, move to the next point
+                }
             }
         }
+        
+        else //Secondary Path
+        {
+            //If the enemy's position is on the targeted path location, increase pathIndex 
+            if (Vector2.Distance(target.position, transform.position) <= 0.1f)
+            {
+                pathIndex++;
+
+
+                //If the enemy makes it to the end of the path, destroy the enemy; else set target's location equal to the next target on the path
+                if (pathIndex == LevelManager.main.secondaryPath.Length)
+                {
+                    EnemySpawner.onEnemyDestroy.Invoke(); //Call onEnemyDestroy method in Enemyspawner to destroy the enemy
+                    LevelManager.main.ChangeHealth(damage); //Damage Gaia (the player)
+                                                            //Debug.Log("PLAYER TOOK DAMAGE");
+                    Destroy(gameObject);
+                    return;
+                }
+                else
+                {
+                    target = LevelManager.main.secondaryPath[pathIndex]; //If they aren't at the end of the path, move to the next point
+                }
+            }
+        }
+
+        if (transform.position.x < target.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+
     }
 
     private void FixedUpdate()
