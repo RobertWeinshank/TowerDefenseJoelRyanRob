@@ -118,6 +118,8 @@ public class TurretSlowmo : MonoBehaviour
 
     public void OpenUpgradeUI()
     {
+        if (upgradeUI == null) return;
+
         upgradeUI.SetActive(true);
     }
 
@@ -142,6 +144,7 @@ public class TurretSlowmo : MonoBehaviour
         targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
+        Destroy(upgradeUI);
 
         Debug.Log("Lethal");
     }
@@ -160,6 +163,7 @@ public class TurretSlowmo : MonoBehaviour
         targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
+        Destroy(upgradeUI);
 
         Debug.Log("Super Slow");
     }

@@ -213,6 +213,8 @@ public class SolarRayTower : MonoBehaviour
 
     public void OpenUpgradeUI()
     {
+        if (upgradeUI == null) return;
+
         upgradeUI.SetActive(true);
     }
 
@@ -237,6 +239,7 @@ public class SolarRayTower : MonoBehaviour
         targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
+        Destroy(upgradeUI);
         //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
         Debug.Log("Ramping damage");
 
@@ -257,6 +260,7 @@ public class SolarRayTower : MonoBehaviour
         //targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
+        Destroy(upgradeUI);
         //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
         Debug.Log("Damage over time");
     }

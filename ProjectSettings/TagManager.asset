@@ -7,6 +7,7 @@ TagManager:
   - PumpJack
   - PumpJackEnemy
   - Enemy
+  - Plot
   layers:
   - Default
   - TransparentFX

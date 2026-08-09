@@ -178,6 +178,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8026649814472739589}
   moveSpeed: 1.2
   damage: 1
+  leftRightMovement: {fileID: 2038344072699324289, guid: 784b1cf7fed7e1c40bd30a745ed155dd, type: 3}
+  upMovement: {fileID: -2116019561982037661, guid: ff3754fecd307fa43959717a7d2d9f87, type: 3}
+  downMovement: {fileID: 8743636336130101768, guid: fa2e9b3c02e150244aff6913cd422d61, type: 3}
 --- !u!114 &3002825257287373558
 MonoBehaviour:
   m_ObjectHideFlags: 0

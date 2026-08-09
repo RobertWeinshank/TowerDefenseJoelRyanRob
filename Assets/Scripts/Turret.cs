@@ -14,6 +14,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    [SerializeField] private UnityEngine.UI.Button sellButton;
 
     [Header("Audio Settings")]
     [SerializeField] public AudioClip ambientLoopClip;
@@ -24,6 +25,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bulletsPerSecond = 1f;
     [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
+    [SerializeField] private int baseSellCost = 50;
 
     private Transform target;
     private float timeUntilFire;
@@ -36,6 +38,8 @@ public class Turret : MonoBehaviour
     private AudioSource ambientAudioSource;
     private AudioSource weaponAudioSource;
 
+    private Plot plot;
+
     private void Start()
     {
         //Upgrade stuff
@@ -43,6 +47,8 @@ public class Turret : MonoBehaviour
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1);
         upgradeButton2.onClick.AddListener(UpgradePath2);//anytime you click the upgrade button, calls the upgrade method
+        sellButton.onClick.AddListener(SellTower);
+        Plot plot = GetComponent<Plot>();
 
         AudioSource[] sources = GetComponents<AudioSource>();
         if (sources.Length >= 2)
@@ -146,7 +152,18 @@ public class Turret : MonoBehaviour
 
     public void OpenUpgradeUI()
     {
+        if (upgradeUI == null) return;
+
         upgradeUI.SetActive(true);
+    }
+
+    public void SellTower()
+    {
+        if (upgradeUI == null) return;
+
+        //Plot plot = upgradeUI.GetComponent<Plot>();
+        //plot.towerObj = null;
+        //Destroy(gameObject);
     }
 
     public void CloseUpgradeUI()
@@ -213,6 +230,7 @@ public class Turret : MonoBehaviour
 
         em.ResetSpeed();
     }
+
     private void OnDrawGizmosSelected()
     {
         //Handles.color = Color.cyan;
