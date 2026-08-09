@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -102,11 +103,11 @@ public class SolarRayTower : MonoBehaviour
             }
             if (level == 3)
             {
-                //if (damageOverTimeTimer > 0)
-                //{
-                //    FireDamage();
-                //    damageOverTimeTimer -= Time.deltaTime;
-                //}
+                if (damageOverTimeTimer > 0)
+                {
+                    WaitForSeconds();
+                    damageOverTimeTimer -= Time.deltaTime;
+                }
             }
 
         }
@@ -124,8 +125,8 @@ public class SolarRayTower : MonoBehaviour
             target = null;
             return;
         }
-        
-        FireDamage();
+
+        //FireDamage();
         timeUntilFire = 0f;
 
         // Re-verify immediately if FireDamage finished them off
@@ -224,6 +225,10 @@ public class SolarRayTower : MonoBehaviour
         UIManager.main.SetHoveringState(false);
     }
 
+    /*
+     * IF YOU NEED TO CHANGE INCREASE DAMAGE UPGRADE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     public void UpgradePath1() //Ramping Damage
     {
         if (CalculateCost() > LevelManager.main.currency)
@@ -244,7 +249,18 @@ public class SolarRayTower : MonoBehaviour
         Debug.Log("Ramping damage");
 
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE INCREASE DAMAGE UPGRADE LOOK HERE
+     * 
+     */
 
+
+
+    /*
+     * IF YOU NEED TO CHANGE DoT UPGRADE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     public void UpgradePath2() //Damage over Time
     {
         if (CalculateCost() > LevelManager.main.currency)
@@ -264,22 +280,55 @@ public class SolarRayTower : MonoBehaviour
         //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
         Debug.Log("Damage over time");
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE DoT UPGRADE LOOK HERE
+     * 
+     */
+
 
     private int CalculateCost()
     {
         return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
     }
 
+    /*
+     * IF YOU NEED TO CHANGE DPS (FIRE SPEED) LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     private float CalculateDamagePerSecond()
     {
         return damagePerSecondBase * Mathf.Pow(level, 0.6f);
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE DPS (FIRE SPEED) LOOK HERE
+     * 
+     */
+
+
+
+    /*
+     * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     private float CalculateTargetingRange()
     {
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
+     * 
+     */
 
-    private void OnDrawGizmosSelected()
+    private IEnumerator WaitForSeconds()
+    {
+        yield return new WaitForSeconds(1f);
+        FireDamage();
+
+    }
+private void OnDrawGizmosSelected()
     {
         //Handles.color = Color.cyan;
         //Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);

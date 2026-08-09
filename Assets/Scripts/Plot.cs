@@ -113,4 +113,28 @@ public class Plot : MonoBehaviour
     {
         return transform.position;
     }
+
+    public void EmptyPlot()
+    {
+        towerObj = null;
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Tower"))
+    //    {
+    //        //collision.transform.GetComponent<Plot>();
+    //    }
+
+    //}
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Tower"))
+    //    {
+    //        collision.transform.GetComponent<Plot>();
+    //        EmptyPlot();
+    //    }
+
+    //}
+
 }

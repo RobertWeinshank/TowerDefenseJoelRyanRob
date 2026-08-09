@@ -115,7 +115,17 @@ public class Turret : MonoBehaviour
         {
             GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
             Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+
+            /*
+             * IF YOU NEED TO CHANGE SNIPER DAMAGE LOOK HERE
+             * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+             */
             bulletScript.ChangeDamage(5);
+            /*
+             * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             * IF YOU NEED TO CHANGE SNIPER DAMAGE LOOK HERE
+             * 
+             */
             bulletScript.SetTarget(target);
         }
         else
@@ -123,7 +133,7 @@ public class Turret : MonoBehaviour
             GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
             Bullet bulletScript = bulletObj.GetComponent<Bullet>();
             bulletScript.SetTarget(target);
-        }  
+        }
     }
 
     private void FindTarget()
@@ -161,8 +171,8 @@ public class Turret : MonoBehaviour
     {
         if (upgradeUI == null) return;
 
-        //Plot plot = upgradeUI.GetComponent<Plot>();
-        //plot.towerObj = null;
+        //Plot plot = .GetComponent<Plot>();
+        //plot.EmptyPlot();
         //Destroy(gameObject);
     }
 
@@ -172,6 +182,10 @@ public class Turret : MonoBehaviour
         UIManager.main.SetHoveringState(false);
     }
 
+    /*
+     * IF YOU NEED TO CHANGE MACHINE GUN UPGRADE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     public void UpgradePath1() // Higher Fire Rate
     {
         if (CalculateCost() > LevelManager.main.currency)
@@ -184,13 +198,23 @@ public class Turret : MonoBehaviour
         level = 5;
 
         bulletsPerSecond = CalculateBulletsPerSecond();
-        //targetingRange = CalculateTargetingRange();
+        targetingRange = CalculateTargetingRange() / 3f;
 
         CloseUpgradeUI();
         Destroy(upgradeUI);
         Debug.Log("Machine Gun");
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE MACHINE GUN UPGRADE LOOK HERE
+     * 
+     */
 
+
+    /*
+     * IF YOU NEED TO CHANGE SNIPER UPGRADE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     public void UpgradePath2() // Sniper
     {
         if (CalculateCost() > LevelManager.main.currency)
@@ -202,28 +226,51 @@ public class Turret : MonoBehaviour
 
         level = 3;
 
-        bulletsPerSecond = CalculateBulletsPerSecond()/8f;
-        targetingRange = CalculateTargetingRange()*5f;
+        bulletsPerSecond = CalculateBulletsPerSecond() / 8f;
+        targetingRange = CalculateTargetingRange() * 3f;
 
         CloseUpgradeUI();
         Destroy(upgradeUI);
         Debug.Log("Sniper");
     }
-
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE SNIPER UPGRADE LOOK HERE
+     * 
+     */
     private int CalculateCost()
     {
         return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
     }
 
+    /*
+     * IF YOU NEED TO CHANGE BULLET SPEED LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     private float CalculateBulletsPerSecond()
     {
         return bulletsPerSecondBase * Mathf.Pow(level, 0.6f);
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE BULLET SPEED LOOK HERE
+     * 
+     */
+
+
+    /*
+     * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     private float CalculateTargetingRange()
     {
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
-
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
+     * 
+     */
     private IEnumerator ResetEnemeySpeed(EnemyMovement em)
     {
         yield return new WaitForSeconds(.5f);
@@ -237,5 +284,13 @@ public class Turret : MonoBehaviour
         //Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
 
-    
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Plot"))
+    //    {
+    //        collision.transform.GetComponent<Plot>();
+    //    }
+            
+    //}
+
 }

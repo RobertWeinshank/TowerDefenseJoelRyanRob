@@ -8,6 +8,7 @@ TagManager:
   - PumpJackEnemy
   - Enemy
   - Plot
+  - Tower
   layers:
   - Default
   - TransparentFX
