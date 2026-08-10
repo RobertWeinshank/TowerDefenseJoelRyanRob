@@ -190,11 +190,11 @@ public class EnemySpawner : MonoBehaviour
             GameObject prefabToSpawn = enemyPrefabsWave5[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
 
-            if(oilSpawnAmountR5 > 0)
-            {
-                SpawningOilJack();
-                oilSpawnAmountR5--;
-            }
+            //if(oilSpawnAmountR5 > 0)
+            //{
+            //    SpawningOilJack();
+            //    oilSpawnAmountR5--;
+            //}
         }
         else if (currentWave == 6)
         {
@@ -202,11 +202,11 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave6.Length);
             GameObject prefabToSpawn = enemyPrefabsWave6[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
-            if (oilSpawnAmountR6 > 0)
-            {
-                SpawningOilJack();
-                oilSpawnAmountR6--;
-            }
+            //if (oilSpawnAmountR6 > 0)
+            //{
+            //    SpawningOilJack();
+            //    oilSpawnAmountR6--;
+            //}
         }
         else if (currentWave == 7)
         {
@@ -214,11 +214,11 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave7.Length);
             GameObject prefabToSpawn = enemyPrefabsWave7[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
-            if (oilSpawnAmountR7 > 0)
-            {
-                SpawningOilJack();
-                oilSpawnAmountR7--;
-            }
+            //if (oilSpawnAmountR7 > 0)
+            //{
+            //    SpawningOilJack();
+            //    oilSpawnAmountR7--;
+            //}
         }
         else if (currentWave == 8)
         {
@@ -226,11 +226,11 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave8.Length);
             GameObject prefabToSpawn = enemyPrefabsWave8[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
-            if (oilSpawnAmountR8 > 0)
-            {
-                SpawningOilJack();
-                oilSpawnAmountR8--;
-            }
+            //if (oilSpawnAmountR8 > 0)
+            //{
+            //    SpawningOilJack();
+            //    oilSpawnAmountR8--;
+            //}
         }
         else if (currentWave == 9)
         {
@@ -238,11 +238,11 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave9.Length);
             GameObject prefabToSpawn = enemyPrefabsWave9[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
-            if (oilSpawnAmountR9 > 0)
-            {
-                SpawningOilJack();
-                oilSpawnAmountR9--;
-            }
+            //if (oilSpawnAmountR9 > 0)
+            //{
+            //    SpawningOilJack();
+            //    oilSpawnAmountR9--;
+            //}
         }
         else if (currentWave == 10)
         {
@@ -250,11 +250,11 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave10.Length);
             GameObject prefabToSpawn = enemyPrefabsWave10[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
-            if (oilSpawnAmountR10 > 0)
-            {
-                SpawningOilJack();
-                oilSpawnAmountR10--;
-            }
+            //if (oilSpawnAmountR10 > 0)
+            //{
+            //    SpawningOilJack();
+            //    oilSpawnAmountR10--;
+            //}
         }
         else if (currentWave >= 11)
         {
@@ -262,11 +262,11 @@ public class EnemySpawner : MonoBehaviour
             int index = Random.Range(0, enemyPrefabsWave11Beyond.Length);
             GameObject prefabToSpawn = enemyPrefabsWave11Beyond[index]; //In the future, we can randomize which enemy spawns
             Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity); //Spawn the prefab, at the starting point, at its current rotation
-            if (oilSpawnAmountR11 > 0)
-            {
-                SpawningOilJack();
-                oilSpawnAmountR11--;
-            }
+            //if (oilSpawnAmountR11 > 0)
+            //{
+            //    SpawningOilJack();
+            //    oilSpawnAmountR11--;
+            //}
         }
     }
 
