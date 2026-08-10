@@ -82,12 +82,12 @@ public class EnemyMovement : MonoBehaviour
 
         if (transform.position.y < target.position.y && Mathf.Abs(transform.position.x-target.position.x) < 0.1f)
         {
-            Debug.Log("MOVE UP");
+            //Debug.Log("MOVE UP");
             spriteRenderer.sprite = upMovement;
         }
         else if (transform.position.y > target.position.y && Mathf.Abs(transform.position.x - target.position.x) < 0.1f)
         {
-            Debug.Log("MOVE DOWN");
+            //Debug.Log("MOVE DOWN");
             spriteRenderer.sprite = downMovement;
         }
         
@@ -95,13 +95,13 @@ public class EnemyMovement : MonoBehaviour
         {
             spriteRenderer.sprite = leftRightMovement;
             spriteRenderer.flipX = true;
-            Debug.Log("MOVE RIGHT");
+            //Debug.Log("MOVE RIGHT");
         }
         else if (transform.position.x > target.position.x) // look left
         {
             spriteRenderer.sprite = leftRightMovement;
             spriteRenderer.flipX = false;
-            Debug.Log("MOVE LEFT");
+            //Debug.Log("MOVE LEFT");
         }
         
 

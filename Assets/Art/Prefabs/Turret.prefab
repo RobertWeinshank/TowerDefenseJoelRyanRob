@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1509189489236500667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -629,7 +629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2423901941277185884, guid: 5e3bfdd20ab80fe41ad7d7ca566895ea, type: 3}
+  m_Sprite: {fileID: -32495099402623624, guid: 7040bdd92de341841adb35f4ef970918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2423901941277185884, guid: 5e3bfdd20ab80fe41ad7d7ca566895ea, type: 3}
+  m_Sprite: {fileID: -32495099402623624, guid: 7040bdd92de341841adb35f4ef970918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1140,12 +1140,16 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  towerMask:
+    serializedVersion: 2
+    m_Bits: 0
   bulletPrefab: {fileID: 658335138867577497, guid: 15b4b46e48837ce45aeb06cba436b860, type: 3}
   firingPoint: {fileID: 7565156904754077638}
   upgradeUI: {fileID: 615289607545867256}
   upgradeButton: {fileID: 5021747633653151298}
   upgradeButton2: {fileID: 5343019337254405032}
   sellButton: {fileID: 4682220784560898245}
+  spriteRenderer: {fileID: 8715983700299222041}
   ambientLoopClip: {fileID: 8300000, guid: 48890cd28687fb1478f0b983c0325d95, type: 3}
   shootClip: {fileID: 8300000, guid: b0c3cc19c79413941aba21caf1751742, type: 3}
   targetingRange: 3
@@ -1153,6 +1157,9 @@ MonoBehaviour:
   bulletsPerSecond: 0.8
   baseUpgradeCost: 40
   baseSellCost: 50
+  baseTowerSprite: {fileID: -7946229862258323081, guid: aef9494988ca49541a86edda4d69bfc8, type: 3}
+  upgrade1TowerSprite: {fileID: 21300000, guid: 20da9276df72dc94a858644fc944c86a, type: 3}
+  upgrade2TowerSprite: {fileID: 21300000, guid: 013e5f19e3bdde84c8f509f221cd5d40, type: 3}
 --- !u!114 &-3453053898543279640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,7 +1255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2423901941277185884, guid: 5e3bfdd20ab80fe41ad7d7ca566895ea, type: 3}
+  m_Sprite: {fileID: -32495099402623624, guid: 7040bdd92de341841adb35f4ef970918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

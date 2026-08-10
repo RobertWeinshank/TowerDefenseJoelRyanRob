@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5443d1e8dcb0ada418282fe231357b50
+guid: 013e5f19e3bdde84c8f509f221cd5d40
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4334182692249300709
-    second: vines_0
+      213: -5746933750205921091
+    second: sniper tower turret_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vines_0
+      name: sniper tower turret_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 59
+        y: 6
+        width: 132
+        height: 343
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ee6a23f13c162c30800000000000000
-      internalID: 4334182692249300709
+      spriteID: db8c547e33ace30b0800000000000000
+      internalID: -5746933750205921091
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vines_0: 4334182692249300709
+      sniper tower turret_0: -5746933750205921091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

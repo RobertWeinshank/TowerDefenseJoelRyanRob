@@ -10,6 +10,8 @@ public class TurretSlowmo : MonoBehaviour
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    [SerializeField] private SpriteRenderer towerSpriteRenderer;
+    [SerializeField] private SpriteRenderer vineSpriteRenderer;
 
     [Header("Audio Settings")]
     [SerializeField] public AudioClip slowmoClip;
@@ -22,13 +24,23 @@ public class TurretSlowmo : MonoBehaviour
     [SerializeField] private int damage = 1;
     [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
 
+    public Sprite baseTowerSprite;
+    public Sprite upgrade1TowerSprite;
+    public Sprite upgrade2TowerSprite;
+
+    public Sprite baseVineSprite;
+    public Sprite upgrade1VineSprite;
+    public Sprite upgrade2VineSprite;
+
     private float timeUntilFire;
 
     //upgrade stuff
     private float attackSpeedBase;
     private float targetingRangeBase;
     private int level = 1;
-    private bool slowEnemy = true;
+    public bool slowEnemy = true;
+
+    public VineEnterExit enterExit;
 
     private float audioCooldownTimer;
 
@@ -42,14 +54,22 @@ public class TurretSlowmo : MonoBehaviour
 
         // FIX: Automatically grabs the AudioSource attached to this Prefab clone!
         audioSource = GetComponent<AudioSource>();
+
     }
 
     void Update()
     {
+       
 
         if (level == 3)
         {
-            FreezeEnemies();
+            //FreezeEnemies();
+            timeUntilFire += Time.deltaTime;
+            if (timeUntilFire >= 1f / attackSpeed)
+            {
+                FreezeEnemies();
+                timeUntilFire = 0f;
+            }
         }
         
         else
@@ -86,9 +106,10 @@ public class TurretSlowmo : MonoBehaviour
                 if (level == 3)
                 {
                     em.UpdateSpeed(0.5f);
-                    if (!slowEnemy)
+                    if (!enterExit.inVines)
                     {
                         StartCoroutine(ResetEnemeySpeed(em));
+                        //em.ResetSpeed();
                     }
                 }
                 else if (level == 2)
@@ -98,11 +119,11 @@ public class TurretSlowmo : MonoBehaviour
                 }
                 else
                 {
-                    em.UpdateSpeed(0.5f);
+                    //em.UpdateSpeed(0.5f);
                     eh.TakeDamage(damage);
                     if (!slowEnemy)
                     {
-                        StartCoroutine(ResetEnemeySpeed(em));
+                        //StartCoroutine(ResetEnemeySpeed(em));
                     }
                 }
             }
@@ -131,6 +152,9 @@ public class TurretSlowmo : MonoBehaviour
 
     public void UpgradePath1() //Lethal Damage
     {
+        towerSpriteRenderer.sprite = upgrade1TowerSprite;
+        vineSpriteRenderer.sprite = upgrade1VineSprite;
+
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
@@ -150,6 +174,9 @@ public class TurretSlowmo : MonoBehaviour
     }
     public void UpgradePath2() //Super Slow
     {
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        vineSpriteRenderer.sprite = upgrade2VineSprite;
+
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
@@ -181,21 +208,21 @@ public class TurretSlowmo : MonoBehaviour
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-            slowEnemy = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == 6)
+    //    {
+    //        slowEnemy = true;
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-           slowEnemy = false;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == 6)
+    //    {
+    //       slowEnemy = false;
+    //    }
+    //}
     private void OnDrawGizmosSelected()
     {
         //Handles.color = Color.cyan;

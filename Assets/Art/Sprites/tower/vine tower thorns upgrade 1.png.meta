@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 31f3d14fc709a8949886a1802909c2e5
+guid: 6ce24fecfb165454faedf898984075ec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2382517304028819639
-    second: transparent png_0
+      213: -7144189570058953167
+    second: vine tower thorns upgrade 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: transparent png_0
+      name: vine tower thorns upgrade 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 250
-        height: 250
+        x: 6
+        y: 4
+        width: 500
+        height: 504
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b0fbd96dd6601120800000000000000
-      internalID: 2382517304028819639
+      spriteID: 13ed594007dbadc90800000000000000
+      internalID: -7144189570058953167
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      transparent png_0: 2382517304028819639
+      vine tower thorns upgrade 1_0: -7144189570058953167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

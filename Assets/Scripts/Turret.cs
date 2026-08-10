@@ -9,12 +9,14 @@ public class Turret : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private LayerMask towerMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
     [SerializeField] private UnityEngine.UI.Button sellButton;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Audio Settings")]
     [SerializeField] public AudioClip ambientLoopClip;
@@ -26,6 +28,10 @@ public class Turret : MonoBehaviour
     [SerializeField] private float bulletsPerSecond = 1f;
     [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
     [SerializeField] private int baseSellCost = 50;
+
+    public Sprite baseTowerSprite;
+    public Sprite upgrade1TowerSprite;
+    public Sprite upgrade2TowerSprite;
 
     private Transform target;
     private float timeUntilFire;
@@ -39,6 +45,8 @@ public class Turret : MonoBehaviour
     private AudioSource weaponAudioSource;
 
     private Plot plot;
+
+    //public TowerHealth th;
 
     private void Start()
     {
@@ -174,6 +182,18 @@ public class Turret : MonoBehaviour
         //Plot plot = .GetComponent<Plot>();
         //plot.EmptyPlot();
         //Destroy(gameObject);
+        //RaycastHit2D[] towersHits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, towerMask);
+
+        //if (towersHits.Length > 0)
+        //{
+        //    th.DestroyTowerUnit();
+        //    for (int i = 0; i < towersHits.Length; i++)
+        //    {
+        //        RaycastHit2D hit = towersHits[i];
+        //        TowerHealth th = hit.transform.GetComponent<TowerHealth>();
+        //        th.DestroyTowerUnit();
+        //    }
+        //}
     }
 
     public void CloseUpgradeUI()
@@ -188,6 +208,7 @@ public class Turret : MonoBehaviour
      */
     public void UpgradePath1() // Higher Fire Rate
     {
+        spriteRenderer.sprite = upgrade1TowerSprite;
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
@@ -217,6 +238,7 @@ public class Turret : MonoBehaviour
      */
     public void UpgradePath2() // Sniper
     {
+        spriteRenderer.sprite = upgrade2TowerSprite;
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;

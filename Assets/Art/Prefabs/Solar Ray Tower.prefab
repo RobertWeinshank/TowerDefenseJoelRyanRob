@@ -326,6 +326,8 @@ MonoBehaviour:
   upgradeUI: {fileID: 7652536154687935540}
   upgradeButton: {fileID: 3463476607892135538}
   upgradeButton2: {fileID: 7156228598211057793}
+  towerSpriteRenderer: {fileID: 1640723593603265442}
+  towerBaseRenderer: {fileID: 2628218024992165849}
   targetingRange: 3
   rotationSpeed: 100
   damagePerSecond: 4
@@ -333,6 +335,10 @@ MonoBehaviour:
   baseUpgradeCost: 100
   audioSource: {fileID: 0}
   fireClip: {fileID: 8300000, guid: 38ef3204c24ffac4487ec73ad5671e2a, type: 3}
+  baseTowerSprite: {fileID: 4758734522771111179, guid: 060ea4859add06b49af69b1839ec209f, type: 3}
+  upgrade1TowerSprite: {fileID: 21300000, guid: 47ffd4e2876ef4640843ad21bd1eeb59, type: 3}
+  upgrade2TowerSprite: {fileID: 21300000, guid: 95d5c92a993de37488722803b39d27e6, type: 3}
+  upgrade2BaseSprite: {fileID: 21300000, guid: 3bdb8b6cfb0efa249b72d97648f901de, type: 3}
 --- !u!114 &-5864165950468736298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2423901941277185884, guid: 5e3bfdd20ab80fe41ad7d7ca566895ea, type: 3}
+  m_Sprite: {fileID: -32495099402623624, guid: 7040bdd92de341841adb35f4ef970918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -855,7 +861,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2423901941277185884, guid: 5e3bfdd20ab80fe41ad7d7ca566895ea, type: 3}
+  m_Sprite: {fileID: -32495099402623624, guid: 7040bdd92de341841adb35f4ef970918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1095,7 +1101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4211972757117924601
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1248,7 +1254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2423901941277185884, guid: 5e3bfdd20ab80fe41ad7d7ca566895ea, type: 3}
+  m_Sprite: {fileID: -32495099402623624, guid: 7040bdd92de341841adb35f4ef970918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

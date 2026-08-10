@@ -11,6 +11,8 @@ public class SolarRayTower : MonoBehaviour
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    [SerializeField] private SpriteRenderer towerSpriteRenderer;
+    [SerializeField] private SpriteRenderer towerBaseRenderer;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
@@ -22,6 +24,13 @@ public class SolarRayTower : MonoBehaviour
     [Header("Audio")]
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public AudioClip fireClip;
+
+
+    public Sprite baseTowerSprite;
+    public Sprite upgrade1TowerSprite;
+    public Sprite upgrade2TowerSprite;
+
+    public Sprite upgrade2BaseSprite;
 
     private Transform target;
     private float timeUntilFire;
@@ -231,6 +240,7 @@ public class SolarRayTower : MonoBehaviour
      */
     public void UpgradePath1() //Ramping Damage
     {
+        towerSpriteRenderer.sprite = upgrade1TowerSprite;
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
@@ -263,6 +273,8 @@ public class SolarRayTower : MonoBehaviour
      */
     public void UpgradePath2() //Damage over Time
     {
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        towerBaseRenderer.sprite = upgrade2BaseSprite;
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
