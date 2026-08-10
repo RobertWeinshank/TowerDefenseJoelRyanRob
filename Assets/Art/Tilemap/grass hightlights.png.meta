@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 83db3be326a4085438bcab343005d454
+guid: b23e25589fef4974983ca063c995a9b2
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -96,6 +96,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -137,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffe81e80c56a79b4baf9948beaeca79e
-      internalID: -1355246330
+      spriteID: 9c345bcac18d57542b80c33f05e09c94
+      internalID: 366108843
       vertices: []
       indices: 
       edges: []
@@ -159,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e992e69b66f5b82428f410d058beabda
-      internalID: -132590977
+      spriteID: 10cd58dced7f69e4c99d649f9de3968f
+      internalID: 353480566
       vertices: []
       indices: 
       edges: []
@@ -181,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5f3277490d30c544b170824fd886c10
-      internalID: 171310350
+      spriteID: 779f9151d472a4e49a8cf1d71a168451
+      internalID: 1478011482
       vertices: []
       indices: 
       edges: []
@@ -203,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d577ff815b5b904a9730e05d35c749d
-      internalID: -821583877
+      spriteID: 713ecbd8f2488074f9bb5e1e8b43c08e
+      internalID: 1196307223
       vertices: []
       indices: 
       edges: []
@@ -225,8 +238,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0671b17a930970d469295bdc9f0488e1
-      internalID: 293079694
+      spriteID: a1c0af7f237d63e4d9c86d4e8c0a9f6e
+      internalID: -1199457263
       vertices: []
       indices: 
       edges: []
@@ -247,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a8ca3066a097094fa9d7913076e1d2b
-      internalID: 1613432144
+      spriteID: ee724c533c884974ca07e3131878067d
+      internalID: -330343976
       vertices: []
       indices: 
       edges: []
@@ -269,8 +282,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d06e058c72ed1904f93afc3e92c20fc6
-      internalID: -357837380
+      spriteID: 0d742b592a02f1b4caa2d763f8edf0cd
+      internalID: 682887265
       vertices: []
       indices: 
       edges: []
@@ -291,8 +304,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65e313acece0cbe4d8bff3fbf67fd86d
-      internalID: 1451958998
+      spriteID: 87a8fb91df43cec49b17c36bd7f52a10
+      internalID: -424836411
       vertices: []
       indices: 
       edges: []
@@ -301,7 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2a3dee8905ba5f84a979ae1ee845fe32
+    spriteID: 6da50e5433fd97545a1c3b0f09aede9b
     internalID: 0
     vertices: []
     indices: 
@@ -314,14 +327,14 @@ TextureImporter:
         value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       grass hightlights_0: 4837225877094048893
-      grass hightlights_1: -1355246330
-      grass hightlights_2: -132590977
-      grass hightlights_3: 171310350
-      grass hightlights_4: -821583877
-      grass hightlights_5: 293079694
-      grass hightlights_6: 1613432144
-      grass hightlights_7: -357837380
-      grass hightlights_8: 1451958998
+      grass hightlights_1: 366108843
+      grass hightlights_2: 353480566
+      grass hightlights_3: 1478011482
+      grass hightlights_4: 1196307223
+      grass hightlights_5: -1199457263
+      grass hightlights_6: -330343976
+      grass hightlights_7: 682887265
+      grass hightlights_8: -424836411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

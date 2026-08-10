@@ -3,28 +3,52 @@ using System;
 using System.Collections;
 public class SeedAnimation : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private Rigidbody2D rb;
 
-    private float originalY;
+    [Header("Atrributes")]
+    [SerializeField] private float seedSpeed = 5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
+    private Transform target;
+
+    public void SetTarget(Transform _target)
     {
-        this.originalY = this.transform.position.y;
+        target = _target;
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x, originalY + (Mathf.Sin(Time.time) * 1), transform.position.z);
-        Destroy(this, 3);
-    }
+        if (!target) return;
 
-    private IEnumerator WaitForSeconds()
-    {
-        yield return new WaitForSeconds(3f);
-        gameObject.SetActive(false);
-        Destroy(gameObject, 3);
-    }
+        Vector2 direction = (target.position - transform.position).normalized; //move the bullet towards the enemy
 
+        rb.linearVelocity = direction * seedSpeed;
+
+        if (Mathf.Abs(transform.position.x - target.position.x) < 0.1f)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    //private float originalY;
+
+    //// Start is called once before the first execution of Update after the MonoBehaviour is created
+    //private void Start()
+    //{
+    //    this.originalY = this.transform.position.y;
+    //}
+
+    //// Update is called once per frame
+    //private void Update()
+    //{
+    //    transform.position = new Vector3(transform.position.x, originalY + (Mathf.Sin(Time.time) * 1), transform.position.z);
+    //    Destroy(this, 3);
+    //}
+
+    //private IEnumerator WaitForSeconds()
+    //{
+    //    yield return new WaitForSeconds(3f);
+    //    gameObject.SetActive(false);
+    //    Destroy(gameObject, 3);
+    //}
 
 }

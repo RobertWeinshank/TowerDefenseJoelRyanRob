@@ -9,13 +9,28 @@ public class TurretSlowmo : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
+    [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    [SerializeField] private SpriteRenderer towerSpriteRenderer;
+    [SerializeField] private SpriteRenderer vineSpriteRenderer;
+
+    [Header("Audio Settings")]
+    [SerializeField] public AudioClip slowmoClip;
+    private AudioSource audioSource;
 
     [Header("Attribute")]
-    [SerializeField] private float targetingRange = 3f;
-    [SerializeField] private float attackSpeed = 4f;
-    [SerializeField] private float freezeTime = 1f;
+    [SerializeField] private float targetingRange = 2f;
+    [SerializeField] private float attackSpeed = 1.2f;
+    [SerializeField] private float freezeTime = 0.3f;
     [SerializeField] private int damage = 1;
-    [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
+    [SerializeField] private int baseUpgradeCost = 40; //upgrade stuff
+
+    public Sprite baseTowerSprite;
+    public Sprite upgrade1TowerSprite;
+    public Sprite upgrade2TowerSprite;
+
+    public Sprite baseVineSprite;
+    public Sprite upgrade1VineSprite;
+    public Sprite upgrade2VineSprite;
 
     private float timeUntilFire;
 
@@ -23,25 +38,38 @@ public class TurretSlowmo : MonoBehaviour
     private float attackSpeedBase;
     private float targetingRangeBase;
     private int level = 1;
-<<<<<<< Updated upstream
-=======
-    private bool slowEnemy = true;
->>>>>>> Stashed changes
+    public bool slowEnemy = true;
+
+    public VineEnterExit enterExit;
+
+    private float audioCooldownTimer;
 
     private void Start()
     {
         //Upgrade stuff
         attackSpeedBase = attackSpeed;
         targetingRangeBase = targetingRange;
-        upgradeButton.onClick.AddListener(Upgrade); //anytime you click the upgrade button, calls the upgrade method
+        upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
+        upgradeButton2.onClick.AddListener(UpgradePath2);
+
+        // FIX: Automatically grabs the AudioSource attached to this Prefab clone!
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     void Update()
     {
+       
 
         if (level == 3)
         {
-            FreezeEnemies();
+            //FreezeEnemies();
+            timeUntilFire += Time.deltaTime;
+            if (timeUntilFire >= 1f / attackSpeed)
+            {
+                FreezeEnemies();
+                timeUntilFire = 0f;
+            }
         }
         
         else
@@ -62,26 +90,41 @@ public class TurretSlowmo : MonoBehaviour
 
         if (hits.Length > 0)
         {
+            if (audioSource != null && slowmoClip != null && audioCooldownTimer <= 0)
+            {
+                audioSource.PlayOneShot(slowmoClip);
+                audioCooldownTimer = (level == 3) ? 0.3f : 0.05f;
+            }
+
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
-
                 EnemyMovement em = hit.transform.GetComponent<EnemyMovement>(); //Gets the enemy movement script of any enemy hit by the raycast
-                em.UpdateSpeed(0.5f);//Updates the speed once you get the script
 
                 EnemyHealth eh = hits[i].transform.GetComponent<EnemyHealth>(); //Damages the enemy overtime
                 //Debug.Log("Enemy taking rain damage");
                 if (level == 3)
                 {
-                    if (!slowEnemy)
+                    em.UpdateSpeed(0.5f);
+                    if (!enterExit.inVines)
                     {
                         StartCoroutine(ResetEnemeySpeed(em));
+                        //em.ResetSpeed();
                     }
+                }
+                else if (level == 2)
+                {
+                    //StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                    eh.TakeDamage(damage);
                 }
                 else
                 {
-                    StartCoroutine(ResetEnemeySpeed(em)); //pass the method resetEnemySpeed
+                    //em.UpdateSpeed(0.5f);
                     eh.TakeDamage(damage);
+                    if (!slowEnemy)
+                    {
+                        //StartCoroutine(ResetEnemeySpeed(em));
+                    }
                 }
             }
         }
@@ -96,6 +139,8 @@ public class TurretSlowmo : MonoBehaviour
 
     public void OpenUpgradeUI()
     {
+        if (upgradeUI == null) return;
+
         upgradeUI.SetActive(true);
     }
 
@@ -105,8 +150,11 @@ public class TurretSlowmo : MonoBehaviour
         UIManager.main.SetHoveringState(false);
     }
 
-    public void Upgrade()
+    public void UpgradePath1() //Lethal Damage
     {
+        towerSpriteRenderer.sprite = upgrade1TowerSprite;
+        vineSpriteRenderer.sprite = upgrade1VineSprite;
+
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
@@ -114,15 +162,38 @@ public class TurretSlowmo : MonoBehaviour
 
         LevelManager.main.SpendCurrency(CalculateCost());
 
-        level++;
+        level = 2;
 
         attackSpeed = CalculateAttackSpeed();
         targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
-        Debug.Log("New BPS: " + attackSpeed + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
-    }
+        Destroy(upgradeUI);
 
+        Debug.Log("Lethal");
+    }
+    public void UpgradePath2() //Super Slow
+    {
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        vineSpriteRenderer.sprite = upgrade2VineSprite;
+
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(CalculateCost());
+
+        level = 3;
+
+        attackSpeed = CalculateAttackSpeed();
+        targetingRange = CalculateTargetingRange();
+
+        CloseUpgradeUI();
+        Destroy(upgradeUI);
+
+        Debug.Log("Super Slow");
+    }
     private int CalculateCost()
     {
         return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
@@ -137,27 +208,24 @@ public class TurretSlowmo : MonoBehaviour
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
 
-<<<<<<< Updated upstream
-=======
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-            slowEnemy = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == 6)
+    //    {
+    //        slowEnemy = true;
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-           slowEnemy = false;
-        }
-    }
->>>>>>> Stashed changes
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == 6)
+    //    {
+    //       slowEnemy = false;
+    //    }
+    //}
     private void OnDrawGizmosSelected()
     {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+        //Handles.color = Color.cyan;
+        //Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
 }

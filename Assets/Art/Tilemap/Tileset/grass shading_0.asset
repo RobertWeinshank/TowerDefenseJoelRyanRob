@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: grass shading_0
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: 3503016384757040572, guid: 67903ccf5cb7b0d4fb5f2251837fc221, type: 3}
+  m_Sprite: {fileID: 3503016384757040572, guid: bf31b2316cccb2a4d821d271e648da23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

@@ -32,11 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.49776, y: 1.33342, z: 0}
-<<<<<<< Updated upstream
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-=======
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
->>>>>>> Stashed changes
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,19 +84,11 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< Updated upstream
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.254717, g: 0.116111636, b: 0.051664297, a: 1}
-  m_FlipX: 0
-=======
-  m_SortingOrder: 5
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: -5100722375884657917, guid: 6eadeb3ef0d4d2c40ad26f1df030e5b1, type: 3}
+  m_Sprite: {fileID: -4231490375040937765, guid: 3dcad4e9b1bed8b48858f7ab06a988b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
->>>>>>> Stashed changes
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -208,12 +196,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rb: {fileID: 6202093118102065129}
   animator: {fileID: 3467243769993196188}
-<<<<<<< Updated upstream
-=======
   spriteRenderer: {fileID: 6119650083373858715}
->>>>>>> Stashed changes
-  moveSpeed: 2
-  damage: 1
+  moveSpeed: 0.8
+  damage: 5
+  leftRightMovement: {fileID: -5100722375884657917, guid: 6eadeb3ef0d4d2c40ad26f1df030e5b1, type: 3}
+  upMovement: {fileID: 42785808804461722, guid: 433632c0bb906034fade3519f06d0da4, type: 3}
+  downMovement: {fileID: 42785808804461722, guid: 433632c0bb906034fade3519f06d0da4, type: 3}
 --- !u!114 &-1360834488664272446
 MonoBehaviour:
   m_ObjectHideFlags: 0

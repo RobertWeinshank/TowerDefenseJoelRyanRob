@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: dd5133cd470cdab4c8a44c6044b02094
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8851928746922003928
+    second: vine tower thorns upgrade 2_0
+  - first:
+      213: -2852419893486234380
+    second: vine tower thorns upgrade 2_1
+  - first:
+      213: 7263052938763442702
+    second: vine tower thorns upgrade 2_2
+  - first:
+      213: 6459052744597725696
+    second: vine tower thorns upgrade 2_3
+  - first:
+      213: -5571030459113240867
+    second: vine tower thorns upgrade 2_4
+  - first:
+      213: 6975564209127882306
+    second: vine tower thorns upgrade 2_5
+  - first:
+      213: 3699938884630439462
+    second: vine tower thorns upgrade 2_6
+  - first:
+      213: 1751373102323918188
+    second: vine tower thorns upgrade 2_7
+  - first:
+      213: -2196308988537693212
+    second: vine tower thorns upgrade 2_8
+  - first:
+      213: -4000584344348042683
+    second: vine tower thorns upgrade 2_9
+  - first:
+      213: 1487395836214016995
+    second: vine tower thorns upgrade 2_10
+  - first:
+      213: -7581729245039652190
+    second: vine tower thorns upgrade 2_11
+  - first:
+      213: 306650448226144117
+    second: vine tower thorns upgrade 2_12
+  - first:
+      213: -919035501187161328
+    second: vine tower thorns upgrade 2_13
+  - first:
+      213: 4280115903918669443
+    second: vine tower thorns upgrade 2_14
+  - first:
+      213: 4425838056626433739
+    second: vine tower thorns upgrade 2_15
+  - first:
+      213: -1849865839645507839
+    second: vine tower thorns upgrade 2_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 62
+        width: 481
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82235a644b1a72580800000000000000
+      internalID: -8851928746922003928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 366
+        width: 82
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f4de7a383b2a68d0800000000000000
+      internalID: -2852419893486234380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 393
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0a1adf9a2c8bc460800000000000000
+      internalID: 7263052938763442702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 397
+        width: 194
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 002624bef3a23a950800000000000000
+      internalID: 6459052744597725696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_4
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 379
+        width: 41
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd68ca36059bfa2b0800000000000000
+      internalID: -5571030459113240867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_5
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 379
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24efef8a0be2ec060800000000000000
+      internalID: 6975564209127882306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_6
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 393
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6266d0dffc2d85330800000000000000
+      internalID: 3699938884630439462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_7
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 366
+        width: 82
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65e031be802e4810800000000000000
+      internalID: 1751373102323918188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_8
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 148
+        width: 59
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb96398c942581e0800000000000000
+      internalID: -2196308988537693212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_9
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 48
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54a552d1cb11b78c0800000000000000
+      internalID: -4000584344348042683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_10
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 34
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eb7ee9e1aa44a410800000000000000
+      internalID: 1487395836214016995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_11
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 48
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2983edb6948c690800000000000000
+      internalID: -7581729245039652190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_12
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 35
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57fcbbc35f0714400800000000000000
+      internalID: 306650448226144117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_13
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 35
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01324c7b41eee33f0800000000000000
+      internalID: -919035501187161328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_14
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 48
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e7292dcb6066b30800000000000000
+      internalID: 4280115903918669443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_15
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 34
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bceaf9e634cbb6d30800000000000000
+      internalID: 4425838056626433739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine tower thorns upgrade 2_16
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 48
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10fbcc1e1d4f356e0800000000000000
+      internalID: -1849865839645507839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      vine tower thorns upgrade 2_0: -8851928746922003928
+      vine tower thorns upgrade 2_1: -2852419893486234380
+      vine tower thorns upgrade 2_10: 1487395836214016995
+      vine tower thorns upgrade 2_11: -7581729245039652190
+      vine tower thorns upgrade 2_12: 306650448226144117
+      vine tower thorns upgrade 2_13: -919035501187161328
+      vine tower thorns upgrade 2_14: 4280115903918669443
+      vine tower thorns upgrade 2_15: 4425838056626433739
+      vine tower thorns upgrade 2_16: -1849865839645507839
+      vine tower thorns upgrade 2_2: 7263052938763442702
+      vine tower thorns upgrade 2_3: 6459052744597725696
+      vine tower thorns upgrade 2_4: -5571030459113240867
+      vine tower thorns upgrade 2_5: 6975564209127882306
+      vine tower thorns upgrade 2_6: 3699938884630439462
+      vine tower thorns upgrade 2_7: 1751373102323918188
+      vine tower thorns upgrade 2_8: -2196308988537693212
+      vine tower thorns upgrade 2_9: -4000584344348042683
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

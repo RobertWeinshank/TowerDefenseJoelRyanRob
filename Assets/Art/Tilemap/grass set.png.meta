@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: 82e8accade1fe4223a97e60ae51def4a
-=======
-guid: 28c185ffd3c1c6a49b734466f6e1808b
->>>>>>> Stashed changes
+guid: 80810b26091512a4fb5475c1a174e93b
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -41,11 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< Updated upstream
-    filterMode: 0
-=======
     filterMode: 1
->>>>>>> Stashed changes
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -104,6 +96,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -145,13 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: ab51d2e93d4034c71bdf158ba3fdd1e8
-      internalID: 694667606
-=======
-      spriteID: f7f7e9a1738f4aa4dbd7b8801ee09129
-      internalID: 1221294804
->>>>>>> Stashed changes
+      spriteID: eed8730eb21f2974aa5f26453f67f67c
+      internalID: 723866084
       vertices: []
       indices: 
       edges: []
@@ -172,13 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: 12f35d2fd4971485f9d8ceb634b6a6e5
-      internalID: -2052584016
-=======
-      spriteID: 55a67ccd04c827b4da4b1c17b14655ab
-      internalID: 381574827
->>>>>>> Stashed changes
+      spriteID: 1cd5ea0b3565d1a4ebbc6bf5cfbd29b1
+      internalID: -973769180
       vertices: []
       indices: 
       edges: []
@@ -199,13 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: ef9887246b9b849f7affa0d60a886f09
-      internalID: 1867901803
-=======
-      spriteID: b1276ea6fcac5d34da8cd6ee1240f44c
-      internalID: -1135315208
->>>>>>> Stashed changes
+      spriteID: 3afbef578c77c2d42a10e9b5500f66e8
+      internalID: -937663768
       vertices: []
       indices: 
       edges: []
@@ -226,13 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: 1c2d3416f5bcd498cae220dacecb448b
-      internalID: -1405185182
-=======
-      spriteID: e370ffab2113b8d48ac78b007df7731d
-      internalID: 1263703883
->>>>>>> Stashed changes
+      spriteID: 2a17214ec2c45e943a80b3791b2a1493
+      internalID: -230458968
       vertices: []
       indices: 
       edges: []
@@ -253,13 +238,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: f646c884dd56d4b9498ccc486fd6f217
-      internalID: -1631484100
-=======
-      spriteID: d312c96d649ce69499c8160a2564d71e
-      internalID: -1801559152
->>>>>>> Stashed changes
+      spriteID: 3dd43035db4d3804aac4126168af2312
+      internalID: -1421703154
       vertices: []
       indices: 
       edges: []
@@ -280,13 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: 36148a86785e2430ab2fa221dc4cece4
-      internalID: 1521595839
-=======
-      spriteID: 3d577bccb3f4e7040bdfd97f39fb9f52
-      internalID: -2121851985
->>>>>>> Stashed changes
+      spriteID: 66dda2c3d347ace41b25c43820ba47e8
+      internalID: -401253876
       vertices: []
       indices: 
       edges: []
@@ -307,13 +282,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: 2289b6794df2a44b089fb504522da1b1
-      internalID: -1658767301
-=======
-      spriteID: fb0c9c185e74f2146b4523f854fc1d0e
-      internalID: 1084201997
->>>>>>> Stashed changes
+      spriteID: ee61ed0bf1282d940971259b4812d260
+      internalID: -2060589019
       vertices: []
       indices: 
       edges: []
@@ -334,13 +304,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-<<<<<<< Updated upstream
-      spriteID: 07b0f10b9de164674ad09e48b976a583
-      internalID: -823481434
-=======
-      spriteID: 8c233e08fbd62ac43b91cc58da4edea3
-      internalID: 351004949
->>>>>>> Stashed changes
+      spriteID: 9bc87604f60a7e143be5e7bd557bdf2b
+      internalID: -974903512
       vertices: []
       indices: 
       edges: []
@@ -349,11 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-<<<<<<< Updated upstream
-    spriteID: 72bdb3cb443ac4ec6807922d79e1e6b4
-=======
-    spriteID: 06982086f4adda044aa15f22a0eb4e55
->>>>>>> Stashed changes
+    spriteID: bf7b28ac695c28244b3eb73d977ea537
     internalID: 0
     vertices: []
     indices: 
@@ -366,25 +327,14 @@ TextureImporter:
         value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":512.0,"y":512.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       grass set_0: -1509573901565881314
-<<<<<<< Updated upstream
-      grass set_1: 694667606
-      grass set_2: -2052584016
-      grass set_3: 1867901803
-      grass set_4: -1405185182
-      grass set_5: -1631484100
-      grass set_6: 1521595839
-      grass set_7: -1658767301
-      grass set_8: -823481434
-=======
-      grass set_1: 1221294804
-      grass set_2: 381574827
-      grass set_3: -1135315208
-      grass set_4: 1263703883
-      grass set_5: -1801559152
-      grass set_6: -2121851985
-      grass set_7: 1084201997
-      grass set_8: 351004949
->>>>>>> Stashed changes
+      grass set_1: 723866084
+      grass set_2: -973769180
+      grass set_3: -937663768
+      grass set_4: -230458968
+      grass set_5: -1421703154
+      grass set_6: -401253876
+      grass set_7: -2060589019
+      grass set_8: -974903512
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

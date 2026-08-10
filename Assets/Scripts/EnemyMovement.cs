@@ -12,6 +12,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private int damage = 1;
 
+    public Sprite leftRightMovement;
+    public Sprite upMovement;
+    public Sprite downMovement;
+
     //point we want to move to
     private Transform target;
     private int pathIndex = 0;
@@ -74,20 +78,33 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
-<<<<<<< Updated upstream
+
+
+        if (transform.position.y < target.position.y && Mathf.Abs(transform.position.x-target.position.x) < 0.1f)
+        {
+            //Debug.Log("MOVE UP");
+            spriteRenderer.sprite = upMovement;
+        }
+        else if (transform.position.y > target.position.y && Mathf.Abs(transform.position.x - target.position.x) < 0.1f)
+        {
+            //Debug.Log("MOVE DOWN");
+            spriteRenderer.sprite = downMovement;
+        }
         
-=======
-
-        if (transform.position.x < target.position.x)
+        else if (transform.position.x < target.position.x) // look right
         {
+            spriteRenderer.sprite = leftRightMovement;
             spriteRenderer.flipX = true;
+            //Debug.Log("MOVE RIGHT");
         }
-        else
+        else if (transform.position.x > target.position.x) // look left
         {
+            spriteRenderer.sprite = leftRightMovement;
             spriteRenderer.flipX = false;
+            //Debug.Log("MOVE LEFT");
         }
+        
 
->>>>>>> Stashed changes
     }
 
     private void FixedUpdate()

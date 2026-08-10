@@ -6,10 +6,9 @@ TagManager:
   tags:
   - PumpJack
   - PumpJackEnemy
-<<<<<<< Updated upstream
-=======
   - Enemy
->>>>>>> Stashed changes
+  - Plot
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -20,7 +19,7 @@ TagManager:
   - Enemy
   - Bullet
   - Tower
-  - 
+  - Plot
   - 
   - 
   - 

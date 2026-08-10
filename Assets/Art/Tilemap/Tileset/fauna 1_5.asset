@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: fauna 1_5
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: -5209080347514531764, guid: 0713e4f6fde92924c926895e02ae1d2d, type: 3}
+  m_Sprite: {fileID: -5209080347514531764, guid: 3773550158b658d429361402cb6f099b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

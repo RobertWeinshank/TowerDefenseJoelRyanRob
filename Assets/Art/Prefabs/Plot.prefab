@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4591391939993016473}
   m_Layer: 0
   m_Name: Plot
-  m_TagString: Untagged
+  m_TagString: Plot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2017285022, guid: ecfd95d1eeadb3045a1b0e90578e49f3, type: 3}
+  m_Sprite: {fileID: -7774315292570685723, guid: bdb546c9f6f7d585ba44cd6fa760bf85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,7 +111,7 @@ BoxCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -132,7 +132,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.9980469, y: 0.9921875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -153,14 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plot
   sr: {fileID: 961510332276949272}
-<<<<<<< Updated upstream
-  hoverColor: {r: 1, g: 1, b: 1, a: 0.2509804}
-  towerObj: {fileID: 0}
-=======
-  hoverColor: {r: 0.15659487, g: 0.39458883, b: 0.4811321, a: 1}
+  hoverColor: {r: 0.2830189, g: 0.14788619, b: 0.052064802, a: 1}
   towerObj: {fileID: 0}
   seedPrefab: {fileID: 3830857591533830108, guid: c58244b0d986fce48b54884acffbb3cc, type: 3}
->>>>>>> Stashed changes
   turret: {fileID: 0}
   slowmo: {fileID: 0}
   solar: {fileID: 0}
