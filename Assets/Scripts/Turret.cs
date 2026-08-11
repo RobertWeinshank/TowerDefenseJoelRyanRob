@@ -19,11 +19,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Audio Settings")]
-    [SerializeField] public AudioClip ambientLoopClip; // Drag your constant/always-on water loop here!
-    [SerializeField] public AudioClip shootClip;       // Drag your bullet fire/splash sound here!
-
-    private AudioSource ambientAudioSource; // Plays the always-on loop
-    private AudioSource weaponAudioSource;  // Plays the shot sounds
+    [SerializeField] public AudioClip ambientLoopClip;
+    [SerializeField] public AudioClip shootClip;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
@@ -44,8 +41,6 @@ public class Turret : MonoBehaviour
     private float targetingRangeBase;
     private int level = 1;
 
-<<<<<<< Updated upstream
-=======
     private AudioSource ambientAudioSource;
     private AudioSource weaponAudioSource;
 
@@ -53,22 +48,16 @@ public class Turret : MonoBehaviour
 
     //public TowerHealth th;
 
->>>>>>> Stashed changes
     private void Start()
     {
         //Upgrade stuff
         bulletsPerSecondBase = bulletsPerSecond;
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1);
-<<<<<<< Updated upstream
-        upgradeButton2.onClick.AddListener(UpgradePath2);
-=======
         upgradeButton2.onClick.AddListener(UpgradePath2);//anytime you click the upgrade button, calls the upgrade method
         sellButton.onClick.AddListener(SellTower);
         Plot plot = GetComponent<Plot>();
->>>>>>> Stashed changes
 
-        // FIX: Grabs both attached AudioSources cleanly
         AudioSource[] sources = GetComponents<AudioSource>();
         if (sources.Length >= 2)
         {
@@ -100,7 +89,7 @@ public class Turret : MonoBehaviour
         {
             target = null;
         }
-        else 
+        else //if there are targets in range, shoot
         {
             timeUntilFire += Time.deltaTime;
 
@@ -118,22 +107,21 @@ public class Turret : MonoBehaviour
         {
             ambientAudioSource.clip = ambientLoopClip;
             ambientAudioSource.loop = true; // Make it run endlessly
-            ambientAudioSource.playOnAwake = false; 
+            ambientAudioSource.playOnAwake = false;
             ambientAudioSource.Play();
         }
     }
-
     private void Shoot()
     {
-        // AUDIO TRIGGER: Plays the firing sound independently from the weapon speaker
         if (weaponAudioSource != null && shootClip != null)
         {
             weaponAudioSource.PlayOneShot(shootClip);
         }
 
+        //Debug.Log("PEW PEW");
         if (level == 3)
         {
-            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); 
+            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
             Bullet bulletScript = bulletObj.GetComponent<Bullet>();
 
             /*
@@ -150,7 +138,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); 
+            GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //create a bullet at the bullet firing point
             Bullet bulletScript = bulletObj.GetComponent<Bullet>();
             bulletScript.SetTarget(target);
         }
@@ -158,20 +146,21 @@ public class Turret : MonoBehaviour
 
     private void FindTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask); 
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask); //Takes the turret positin, range, direction (our position in vector2), distance from target, and layermask
 
         if (hits.Length > 0)
         {
-            target = hits[0].transform; 
+            target = hits[0].transform; //turret finds a target in range
         }
+
     }
 
     private void RotateTowardsTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg + -90f; 
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg + -90f; // Get the angle between the target and turret (in both x and y) and multiply it by rad2
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);// slowley rotates the turret instead of having it snap to target / back to center
     }
 
     private bool CheckTargetIsInRange()
@@ -213,11 +202,6 @@ public class Turret : MonoBehaviour
         UIManager.main.SetHoveringState(false);
     }
 
-<<<<<<< Updated upstream
-    public void UpgradePath1() 
-    {
-        if (CalculateCost() > LevelManager.main.currency) return;
-=======
     /*
      * IF YOU NEED TO CHANGE MACHINE GUN UPGRADE LOOK HERE
      * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
@@ -230,16 +214,16 @@ public class Turret : MonoBehaviour
             return;
         }
 
->>>>>>> Stashed changes
         LevelManager.main.SpendCurrency(CalculateCost());
+
         level = 5;
+
         bulletsPerSecond = CalculateBulletsPerSecond();
-<<<<<<< Updated upstream
-=======
         targetingRange = CalculateTargetingRange() / 3f;
 
->>>>>>> Stashed changes
         CloseUpgradeUI();
+        Destroy(upgradeUI);
+        Debug.Log("Machine Gun");
     }
     /*
      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -247,11 +231,6 @@ public class Turret : MonoBehaviour
      * 
      */
 
-<<<<<<< Updated upstream
-    public void UpgradePath2() 
-    {
-        if (CalculateCost() > LevelManager.main.currency) return;
-=======
 
     /*
      * IF YOU NEED TO CHANGE SNIPER UPGRADE LOOK HERE
@@ -265,27 +244,17 @@ public class Turret : MonoBehaviour
             return;
         }
 
->>>>>>> Stashed changes
         LevelManager.main.SpendCurrency(CalculateCost());
+
         level = 3;
-<<<<<<< Updated upstream
-        bulletsPerSecond = CalculateBulletsPerSecond()/8f;
-        targetingRange = CalculateTargetingRange()*5f;
-=======
 
         bulletsPerSecond = CalculateBulletsPerSecond() / 3.5f;
         targetingRange = CalculateTargetingRange() * 1.75f;
 
->>>>>>> Stashed changes
         CloseUpgradeUI();
+        Destroy(upgradeUI);
+        Debug.Log("Sniper");
     }
-<<<<<<< Updated upstream
-
-    private int CalculateCost() => Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
-    private float CalculateBulletsPerSecond() => bulletsPerSecondBase * Mathf.Pow(level, 0.6f);
-    private float CalculateTargetingRange() => targetingRangeBase * Mathf.Pow(level, 0.4f);
-
-=======
     /*
      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      * IF YOU NEED TO CHANGE SNIPER UPGRADE LOOK HERE
@@ -324,14 +293,12 @@ public class Turret : MonoBehaviour
      * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
      * 
      */
->>>>>>> Stashed changes
     private IEnumerator ResetEnemeySpeed(EnemyMovement em)
     {
         yield return new WaitForSeconds(.5f);
+
         em.ResetSpeed();
     }
-<<<<<<< Updated upstream
-=======
 
     private void OnDrawGizmosSelected()
     {
@@ -348,5 +315,4 @@ public class Turret : MonoBehaviour
             
     //}
 
->>>>>>> Stashed changes
 }

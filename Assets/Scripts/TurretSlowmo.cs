@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -14,8 +14,8 @@ public class TurretSlowmo : MonoBehaviour
     [SerializeField] private SpriteRenderer vineSpriteRenderer;
 
     [Header("Audio Settings")]
-    [SerializeField] public AudioClip slowmoClip; // Drag your slow-mo / pulse sound here!
-    private AudioSource audioSource;               // Captured automatically in Start()
+    [SerializeField] public AudioClip slowmoClip;
+    private AudioSource audioSource;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 2f;
@@ -42,8 +42,7 @@ public class TurretSlowmo : MonoBehaviour
 
     public VineEnterExit enterExit;
 
-    // Cooldown tracker to prevent Level 3 from spamming the audio card 60 times a second
-    private float audioCooldownTimer; 
+    private float audioCooldownTimer;
 
     private void Start()
     {
@@ -60,15 +59,7 @@ public class TurretSlowmo : MonoBehaviour
 
     void Update()
     {
-<<<<<<< Updated upstream
-        // Track the audio cooldown over time
-        if (audioCooldownTimer > 0)
-        {
-            audioCooldownTimer -= Time.deltaTime;
-        }
-=======
        
->>>>>>> Stashed changes
 
         if (level == 3)
         {
@@ -80,6 +71,7 @@ public class TurretSlowmo : MonoBehaviour
                 timeUntilFire = 0f;
             }
         }
+        
         else
         {
             timeUntilFire += Time.deltaTime;
@@ -89,6 +81,7 @@ public class TurretSlowmo : MonoBehaviour
                 timeUntilFire = 0f;
             }
         }
+        
     }
 
     private void FreezeEnemies()
@@ -97,12 +90,10 @@ public class TurretSlowmo : MonoBehaviour
 
         if (hits.Length > 0)
         {
-            // AUDIO TRIGGER: Play the sound effect once per firing pulse
-            // If level == 3, the cooldown ensures it only plays once every 0.3 seconds instead of tearing up the speakers
             if (audioSource != null && slowmoClip != null && audioCooldownTimer <= 0)
             {
                 audioSource.PlayOneShot(slowmoClip);
-                audioCooldownTimer = (level == 3) ? 0.3f : 0.05f; 
+                audioCooldownTimer = (level == 3) ? 0.3f : 0.05f;
             }
 
             for (int i = 0; i < hits.Length; i++)

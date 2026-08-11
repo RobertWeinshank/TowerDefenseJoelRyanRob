@@ -130,7 +130,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4410915246883439645}
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6263020229410711935, guid: a37b32bd155f88a439e10e40d81dfd2b, type: 3}
+  m_Sprite: {fileID: -5629118067909681708, guid: 0a3d35e8bccba59449ff9fde7de38710, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -358,8 +358,8 @@ Transform:
   m_GameObject: {fileID: 2462567310718685416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70884126, w: 0.7053681}
-  m_LocalPosition: {x: 0.02, y: 0.211, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 0.043, y: 0.349, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7565156904754077638}
@@ -1063,13 +1063,8 @@ GameObject:
   - component: {fileID: 2822877857902940737}
   - component: {fileID: -3453053898543279640}
   - component: {fileID: 1831196476597213831}
-<<<<<<< Updated upstream
-  - component: {fileID: 2969144820029278261}
-  - component: {fileID: 5707461018501438782}
-=======
   - component: {fileID: 4668749669134617120}
   - component: {fileID: 7617410638506165613}
->>>>>>> Stashed changes
   m_Layer: 8
   m_Name: Turret
   m_TagString: Tower
@@ -1155,15 +1150,10 @@ MonoBehaviour:
   upgradeUI: {fileID: 615289607545867256}
   upgradeButton: {fileID: 5021747633653151298}
   upgradeButton2: {fileID: 5343019337254405032}
-<<<<<<< Updated upstream
-  ambientLoopClip: {fileID: 8300000, guid: 318bde34449b74380b08b4aafb179e5e, type: 3}
-  shootClip: {fileID: 8300000, guid: 1ec9a3ffe9e1c4bb99f3d17f19391adb, type: 3}
-=======
   sellButton: {fileID: 4682220784560898245}
   spriteRenderer: {fileID: 8715983700299222041}
   ambientLoopClip: {fileID: 8300000, guid: 48890cd28687fb1478f0b983c0325d95, type: 3}
   shootClip: {fileID: 8300000, guid: b0c3cc19c79413941aba21caf1751742, type: 3}
->>>>>>> Stashed changes
   targetingRange: 3
   rotationSpeed: 200
   bulletsPerSecond: 1
@@ -1199,12 +1189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeUIHandler
   upgradeUI: {fileID: 615289607545867256}
   mouse_over: 0
-<<<<<<< Updated upstream
---- !u!82 &2969144820029278261
-=======
   turnOff: 0
 --- !u!82 &4668749669134617120
->>>>>>> Stashed changes
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1215,112 +1201,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-<<<<<<< Updated upstream
-  m_Resource: {fileID: 8300000, guid: 318bde34449b74380b08b4aafb179e5e, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.111
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!82 &5707461018501438782
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6799909057566234495}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 1ec9a3ffe9e1c4bb99f3d17f19391adb, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.696
-=======
   m_Resource: {fileID: 8300000, guid: 48890cd28687fb1478f0b983c0325d95, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.404
->>>>>>> Stashed changes
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1404,8 +1287,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-<<<<<<< Updated upstream
-=======
 --- !u!82 &7617410638506165613
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1624,4 +1505,3 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
->>>>>>> Stashed changes

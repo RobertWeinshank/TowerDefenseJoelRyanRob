@@ -29,10 +29,15 @@ public class Bullet : MonoBehaviour
     private IEnumerator ResetEnemeySpeed(EnemyMovement em)
     {
         em.UpdateSpeed(.5f);
-        
-        yield return new WaitForEndOfFrame();
 
+        Debug.Log("Slow Basic Turret Shot");
+
+        yield return new WaitForSeconds(.15f);
+
+        Debug.Log("Reset Basic Turret Shot");
         em.ResetSpeed();
+        Destroy(gameObject);
+
     }
 
     public void ChangeDamage(int damage)
@@ -44,8 +49,9 @@ public class Bullet : MonoBehaviour
     {
         EnemyMovement em = other.transform.GetComponent<EnemyMovement>();
         other.gameObject.GetComponent<EnemyHealth>().TakeDamage(bulletDamage); //On bullet collision, take damage
-        Destroy(gameObject); //destroy bullet after collision
         StartCoroutine(ResetEnemeySpeed(em));
+        //Destroy(gameObject); //destroy bullet after collision
+        
     }
 }
 

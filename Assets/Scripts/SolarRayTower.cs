@@ -19,7 +19,7 @@ public class SolarRayTower : MonoBehaviour
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float damagePerSecond = 1f;
     [SerializeField] private int raybeamDamage = 1;
-    [SerializeField] private int baseUpgradeCost = 100;
+    [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
 
     [Header("Audio")]
     [SerializeField] public AudioSource audioSource;
@@ -38,6 +38,7 @@ public class SolarRayTower : MonoBehaviour
     private LineRenderer line;
     private DistanceJoint2D raybeam;
 
+    //upgrade stuff
     private float damagePerSecondBase;
     private float targetingRangeBase;
     private int level = 1;
@@ -54,17 +55,20 @@ public class SolarRayTower : MonoBehaviour
         raybeam.enabled = false;
         line.enabled = false;
 
+        //Upgrade stuff
         damagePerSecondBase = damagePerSecond;
         targetingRangeBase = targetingRange;
-        upgradeButton.onClick.AddListener(UpgradePath1); 
+        upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
         upgradeButton2.onClick.AddListener(UpgradePath2);
         audioSource = GetComponent<AudioSource>();
     }
 
+
     private void Update()
     {
-        // 1. If target was completely destroyed, clean up the beam and find a new one
-        if (target == null || target.gameObject == null)
+        line.SetPosition(0, firingPoint.position); //Create the line at the fire point
+
+        if (target == null)
         {
             if (isFiring)
             {
@@ -75,23 +79,23 @@ public class SolarRayTower : MonoBehaviour
             return;
         }
 
+        //RotateTowardsTarget();
         line.SetPosition(0, firingPoint.position);
 
-        // 2. Stick to the current target unless they walk completely out of range
         if (!CheckTargetIsInRange())
         {
             target = null;
             if (isFiring)
             {
-                StopRaybeam();
+                StopRaybeam(); //If no targets are in range, stop the raybeam cast
             }
+             
         }
-        else 
+        else //if there are targets in range, shoot
         {
-            RotateTowardsTarget();
-
             timeUntilFire += Time.deltaTime;
-            
+            damageOverTimeTimer = 2;
+            //FireRaybeam(target); //Display the raybeam at the target in range
             if (!isFiring)
             {
                 StartRaybeam(target);
@@ -103,11 +107,9 @@ public class SolarRayTower : MonoBehaviour
             }
 
             if (timeUntilFire >= 1f / damagePerSecond)
-            { 
-                Solarbeam(); 
+            {               
+                Solarbeam();//Deal damage to enemy                
             }
-<<<<<<< Updated upstream
-=======
             if (level == 3)
             {
                 if (damageOverTimeTimer > 0)
@@ -117,15 +119,11 @@ public class SolarRayTower : MonoBehaviour
                 }
             }
 
->>>>>>> Stashed changes
         }
     }
 
     private void Solarbeam()
     {
-<<<<<<< Updated upstream
-        if (target == null || target.gameObject == null) return;
-=======
         target.gameObject.GetComponent<EnemyHealth>().TakeDamage(raybeamDamage); //call enemeyHealth script to deal raybeam damage
         EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
         //Debug.Log(target.gameObject.GetComponent<EnemyHealth>().hitPoints + "Hitpoints");
@@ -139,28 +137,12 @@ public class SolarRayTower : MonoBehaviour
 
         //FireDamage();
         timeUntilFire = 0f;
->>>>>>> Stashed changes
 
-        EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
-        
-        if (enemyHealth != null)
+        // Re-verify immediately if FireDamage finished them off
+        if (target == null || target.gameObject == null || enemyHealth.hitPoints <= 0 || enemyHealth.isDestroyed)
         {
-            if (enemyHealth.hitPoints <= 0 || enemyHealth.isDestroyed)
-            {
-                StopRaybeam();
-                target = null;
-                return;
-            }
-
-            FireDamage();
-            timeUntilFire = 0f;
-
-            // Re-verify immediately if FireDamage finished them off
-            if (target == null || target.gameObject == null || enemyHealth.hitPoints <= 0 || enemyHealth.isDestroyed)
-            {
-                StopRaybeam();
-                target = null; 
-            }
+            StopRaybeam();
+            target = null;
         }
     }
 
@@ -178,20 +160,21 @@ public class SolarRayTower : MonoBehaviour
 
     private void FindTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask); //Takes the turret positin, range, direction (our position in vector2), distance from target, and layermask
 
-        // FIXED: Explicitly checks the first index element of the raycast collection
         if (hits.Length > 0 && hits[0].transform != null)
         {
-            target = hits[0].transform;
+            target = hits[0].transform; //turret finds a target in range
         }
+
     }
 
     private void RotateTowardsTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg; // Get the angle between the target and turret (in both x and y) and multiply it by rad2
+
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);// slowley rotates the turret instead of having it snap to target / back to center
     }
 
     private bool CheckTargetIsInRange()
@@ -199,31 +182,42 @@ public class SolarRayTower : MonoBehaviour
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
 
-    private void StartRaybeam(Transform hit)
+    private void FireRaybeam(Transform hit)
     {
-        isFiring = true; 
+        //set the raybeam's location to the enemy's position
         raybeam.enabled = true;
         raybeam.connectedAnchor = hit.position;
+
         line.enabled = true;
         line.SetPosition(1, hit.position);
-     
-        if (audioSource != null && fireClip != null)
-        {
-            audioSource.clip = fireClip;
-            audioSource.loop = true; 
-            audioSource.Play();
-        }
     }
 
     private void StopRaybeam()
     {
-        isFiring = false; 
+        //Debug.Log("Stopping laser");
+        isFiring = false;
         raybeam.enabled = false;
         line.enabled = false;
 
         if (audioSource != null && audioSource.isPlaying)
         {
             audioSource.Stop();
+        }
+    }
+
+    private void StartRaybeam(Transform hit)
+    {
+        isFiring = true;
+        raybeam.enabled = true;
+        raybeam.connectedAnchor = hit.position;
+        line.enabled = true;
+        line.SetPosition(1, hit.position);
+
+        if (audioSource != null && fireClip != null)
+        {
+            audioSource.clip = fireClip;
+            audioSource.loop = true;
+            audioSource.Play();
         }
     }
 
@@ -237,14 +231,9 @@ public class SolarRayTower : MonoBehaviour
     public void CloseUpgradeUI()
     {
         upgradeUI.SetActive(false);
-        if (UIManager.main != null) UIManager.main.SetHoveringState(false);
+        UIManager.main.SetHoveringState(false);
     }
 
-<<<<<<< Updated upstream
-    public void UpgradePath1() 
-    {
-        if (LevelManager.main == null || CalculateCost() > LevelManager.main.currency) return;
-=======
     /*
      * IF YOU NEED TO CHANGE INCREASE DAMAGE UPGRADE LOOK HERE
      * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
@@ -256,22 +245,19 @@ public class SolarRayTower : MonoBehaviour
         {
             return;
         }
->>>>>>> Stashed changes
 
         LevelManager.main.SpendCurrency(CalculateCost());
-        level++;
+
+        level = 2;
 
         damagePerSecond = CalculateDamagePerSecond();
         targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
-<<<<<<< Updated upstream
-=======
         Destroy(upgradeUI);
         //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
         Debug.Log("Ramping damage");
 
->>>>>>> Stashed changes
     }
     /*
      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -279,11 +265,6 @@ public class SolarRayTower : MonoBehaviour
      * 
      */
 
-<<<<<<< Updated upstream
-    public void UpgradePath2() 
-    {
-        if (LevelManager.main == null || CalculateCost() > LevelManager.main.currency) return;
-=======
 
 
     /*
@@ -298,18 +279,18 @@ public class SolarRayTower : MonoBehaviour
         {
             return;
         }
->>>>>>> Stashed changes
 
         LevelManager.main.SpendCurrency(CalculateCost());
-        level++; 
-        
+
+        level = 3;
+
+        //damagePerSecond = CalculateDamagePerSecond();
+        //targetingRange = CalculateTargetingRange();
+
         CloseUpgradeUI();
-<<<<<<< Updated upstream
-=======
         Destroy(upgradeUI);
         //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
         Debug.Log("Damage over time");
->>>>>>> Stashed changes
     }
     /*
      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -331,9 +312,6 @@ public class SolarRayTower : MonoBehaviour
     {
         return damagePerSecondBase * Mathf.Pow(level, 0.6f);
     }
-<<<<<<< Updated upstream
-    
-=======
     /*
      * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      * IF YOU NEED TO CHANGE DPS (FIRE SPEED) LOOK HERE
@@ -346,7 +324,6 @@ public class SolarRayTower : MonoBehaviour
      * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
      * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
      */
->>>>>>> Stashed changes
     private float CalculateTargetingRange()
     {
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
@@ -365,7 +342,7 @@ public class SolarRayTower : MonoBehaviour
     }
 private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, targetingRange);
+        //Handles.color = Color.cyan;
+        //Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
 }
