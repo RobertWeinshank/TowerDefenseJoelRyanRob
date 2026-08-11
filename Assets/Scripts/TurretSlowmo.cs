@@ -18,11 +18,11 @@ public class TurretSlowmo : MonoBehaviour
     private AudioSource audioSource;
 
     [Header("Attribute")]
-    [SerializeField] private float targetingRange = 3f;
-    [SerializeField] private float attackSpeed = 4f;
-    [SerializeField] private float freezeTime = 1f;
+    [SerializeField] private float targetingRange = 2f;
+    [SerializeField] private float attackSpeed = 1.2f;
+    [SerializeField] private float freezeTime = 0.3f;
     [SerializeField] private int damage = 1;
-    [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
+    [SerializeField] private int baseUpgradeCost = 40; //upgrade stuff
 
     public Sprite baseTowerSprite;
     public Sprite upgrade1TowerSprite;
@@ -152,13 +152,14 @@ public class TurretSlowmo : MonoBehaviour
 
     public void UpgradePath1() //Lethal Damage
     {
-        towerSpriteRenderer.sprite = upgrade1TowerSprite;
-        vineSpriteRenderer.sprite = upgrade1VineSprite;
+        
 
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
         }
+        towerSpriteRenderer.sprite = upgrade1TowerSprite;
+        vineSpriteRenderer.sprite = upgrade1VineSprite;
 
         LevelManager.main.SpendCurrency(CalculateCost());
 
@@ -174,13 +175,14 @@ public class TurretSlowmo : MonoBehaviour
     }
     public void UpgradePath2() //Super Slow
     {
-        towerSpriteRenderer.sprite = upgrade2TowerSprite;
-        vineSpriteRenderer.sprite = upgrade2VineSprite;
+        
 
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
         }
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        vineSpriteRenderer.sprite = upgrade2VineSprite;
 
         LevelManager.main.SpendCurrency(CalculateCost());
 

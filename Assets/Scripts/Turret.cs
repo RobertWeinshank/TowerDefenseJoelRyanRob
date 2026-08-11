@@ -15,7 +15,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
-    [SerializeField] private UnityEngine.UI.Button sellButton;
+    //[SerializeField] private UnityEngine.UI.Button sellButton;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Audio Settings")]
@@ -26,8 +26,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bulletsPerSecond = 1f;
-    [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
-    [SerializeField] private int baseSellCost = 50;
+    [SerializeField] private int baseUpgradeCost = 40; //upgrade stuff
+    [SerializeField] private int baseSellCost = 20;
 
     public Sprite baseTowerSprite;
     public Sprite upgrade1TowerSprite;
@@ -55,7 +55,7 @@ public class Turret : MonoBehaviour
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1);
         upgradeButton2.onClick.AddListener(UpgradePath2);//anytime you click the upgrade button, calls the upgrade method
-        sellButton.onClick.AddListener(SellTower);
+        //sellButton.onClick.AddListener(SellTower);
         Plot plot = GetComponent<Plot>();
 
         AudioSource[] sources = GetComponents<AudioSource>();
@@ -208,12 +208,12 @@ public class Turret : MonoBehaviour
      */
     public void UpgradePath1() // Higher Fire Rate
     {
-        spriteRenderer.sprite = upgrade1TowerSprite;
+        
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
         }
-
+        spriteRenderer.sprite = upgrade1TowerSprite;
         LevelManager.main.SpendCurrency(CalculateCost());
 
         level = 5;
@@ -238,18 +238,18 @@ public class Turret : MonoBehaviour
      */
     public void UpgradePath2() // Sniper
     {
-        spriteRenderer.sprite = upgrade2TowerSprite;
+        
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
         }
-
+        spriteRenderer.sprite = upgrade2TowerSprite;
         LevelManager.main.SpendCurrency(CalculateCost());
 
         level = 3;
 
-        bulletsPerSecond = CalculateBulletsPerSecond() / 8f;
-        targetingRange = CalculateTargetingRange() * 3f;
+        bulletsPerSecond = CalculateBulletsPerSecond() / 3.5f;
+        targetingRange = CalculateTargetingRange() * 1.75f;
 
         CloseUpgradeUI();
         Destroy(upgradeUI);

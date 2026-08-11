@@ -40,8 +40,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currency = 600;
-        health = 300;
+        currency = 120;
+        health = 20;
         gaiaEnergy = 0;
 
         
@@ -77,10 +77,6 @@ public class LevelManager : MonoBehaviour
             }
             smog1.SetActive(false);
 
-            for (int i = 0; i < riverTiles.Length; i++)
-            {
-                riverTiles[i].SetActive(false);
-            }
         }
 
         if (currentWave == 6)
@@ -90,6 +86,19 @@ public class LevelManager : MonoBehaviour
                 quadrant3[i].SetActive(true);
             }
             smog2.SetActive(false);
+        }
+
+        if (currentWave == 7)
+        {
+            for (int i = 0; i < riverTiles.Length; i++)
+            {
+                riverTiles[i].SetActive(false);
+            }
+        }
+
+        if (currentWave == 16)
+        {
+            TriggerGameWin();
         }
     }
 
@@ -130,6 +139,12 @@ public class LevelManager : MonoBehaviour
         isGameOver = true;
         Debug.Log("Game Over! The player has lost.");
         SceneManager.LoadScene("DeathScene");
+    }
+    private void TriggerGameWin()
+    {
+        isGameOver = true;
+        //Debug.Log("Game Over! The player has lost.");
+        SceneManager.LoadScene("VictoryScene");
     }
 
     public void IncreaseGaiaEnergy(int amount)
