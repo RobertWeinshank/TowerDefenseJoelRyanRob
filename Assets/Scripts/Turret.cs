@@ -9,11 +9,14 @@ public class Turret : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private LayerMask towerMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    [SerializeField] private UnityEngine.UI.Button sellButton;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Audio Settings")]
     [SerializeField] public AudioClip ambientLoopClip; // Drag your constant/always-on water loop here!
@@ -26,7 +29,12 @@ public class Turret : MonoBehaviour
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bulletsPerSecond = 1f;
-    [SerializeField] private int baseUpgradeCost = 100; //upgrade stuff
+    [SerializeField] private int baseUpgradeCost = 40; //upgrade stuff
+    [SerializeField] private int baseSellCost = 20;
+
+    public Sprite baseTowerSprite;
+    public Sprite upgrade1TowerSprite;
+    public Sprite upgrade2TowerSprite;
 
     private Transform target;
     private float timeUntilFire;
@@ -36,13 +44,29 @@ public class Turret : MonoBehaviour
     private float targetingRangeBase;
     private int level = 1;
 
+<<<<<<< Updated upstream
+=======
+    private AudioSource ambientAudioSource;
+    private AudioSource weaponAudioSource;
+
+    private Plot plot;
+
+    //public TowerHealth th;
+
+>>>>>>> Stashed changes
     private void Start()
     {
         //Upgrade stuff
         bulletsPerSecondBase = bulletsPerSecond;
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1);
+<<<<<<< Updated upstream
         upgradeButton2.onClick.AddListener(UpgradePath2);
+=======
+        upgradeButton2.onClick.AddListener(UpgradePath2);//anytime you click the upgrade button, calls the upgrade method
+        sellButton.onClick.AddListener(SellTower);
+        Plot plot = GetComponent<Plot>();
+>>>>>>> Stashed changes
 
         // FIX: Grabs both attached AudioSources cleanly
         AudioSource[] sources = GetComponents<AudioSource>();
@@ -111,7 +135,17 @@ public class Turret : MonoBehaviour
         {
             GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); 
             Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+
+            /*
+             * IF YOU NEED TO CHANGE SNIPER DAMAGE LOOK HERE
+             * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+             */
             bulletScript.ChangeDamage(5);
+            /*
+             * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             * IF YOU NEED TO CHANGE SNIPER DAMAGE LOOK HERE
+             * 
+             */
             bulletScript.SetTarget(target);
         }
         else
@@ -119,7 +153,7 @@ public class Turret : MonoBehaviour
             GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); 
             Bullet bulletScript = bulletObj.GetComponent<Bullet>();
             bulletScript.SetTarget(target);
-        }  
+        }
     }
 
     private void FindTarget()
@@ -147,7 +181,30 @@ public class Turret : MonoBehaviour
 
     public void OpenUpgradeUI()
     {
+        if (upgradeUI == null) return;
+
         upgradeUI.SetActive(true);
+    }
+
+    public void SellTower()
+    {
+        if (upgradeUI == null) return;
+
+        //Plot plot = .GetComponent<Plot>();
+        //plot.EmptyPlot();
+        //Destroy(gameObject);
+        //RaycastHit2D[] towersHits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, towerMask);
+
+        //if (towersHits.Length > 0)
+        //{
+        //    th.DestroyTowerUnit();
+        //    for (int i = 0; i < towersHits.Length; i++)
+        //    {
+        //        RaycastHit2D hit = towersHits[i];
+        //        TowerHealth th = hit.transform.GetComponent<TowerHealth>();
+        //        th.DestroyTowerUnit();
+        //    }
+        //}
     }
 
     public void CloseUpgradeUI()
@@ -156,32 +213,140 @@ public class Turret : MonoBehaviour
         UIManager.main.SetHoveringState(false);
     }
 
+<<<<<<< Updated upstream
     public void UpgradePath1() 
     {
         if (CalculateCost() > LevelManager.main.currency) return;
+=======
+    /*
+     * IF YOU NEED TO CHANGE MACHINE GUN UPGRADE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
+    public void UpgradePath1() // Higher Fire Rate
+    {
+        spriteRenderer.sprite = upgrade1TowerSprite;
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+>>>>>>> Stashed changes
         LevelManager.main.SpendCurrency(CalculateCost());
         level = 5;
         bulletsPerSecond = CalculateBulletsPerSecond();
+<<<<<<< Updated upstream
+=======
+        targetingRange = CalculateTargetingRange() / 3f;
+
+>>>>>>> Stashed changes
         CloseUpgradeUI();
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE MACHINE GUN UPGRADE LOOK HERE
+     * 
+     */
 
+<<<<<<< Updated upstream
     public void UpgradePath2() 
     {
         if (CalculateCost() > LevelManager.main.currency) return;
+=======
+
+    /*
+     * IF YOU NEED TO CHANGE SNIPER UPGRADE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
+    public void UpgradePath2() // Sniper
+    {
+        spriteRenderer.sprite = upgrade2TowerSprite;
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+
+>>>>>>> Stashed changes
         LevelManager.main.SpendCurrency(CalculateCost());
         level = 3;
+<<<<<<< Updated upstream
         bulletsPerSecond = CalculateBulletsPerSecond()/8f;
         targetingRange = CalculateTargetingRange()*5f;
+=======
+
+        bulletsPerSecond = CalculateBulletsPerSecond() / 3.5f;
+        targetingRange = CalculateTargetingRange() * 1.75f;
+
+>>>>>>> Stashed changes
         CloseUpgradeUI();
     }
+<<<<<<< Updated upstream
 
     private int CalculateCost() => Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
     private float CalculateBulletsPerSecond() => bulletsPerSecondBase * Mathf.Pow(level, 0.6f);
     private float CalculateTargetingRange() => targetingRangeBase * Mathf.Pow(level, 0.4f);
 
+=======
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE SNIPER UPGRADE LOOK HERE
+     * 
+     */
+    private int CalculateCost()
+    {
+        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
+    }
+
+    /*
+     * IF YOU NEED TO CHANGE BULLET SPEED LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
+    private float CalculateBulletsPerSecond()
+    {
+        return bulletsPerSecondBase * Mathf.Pow(level, 0.6f);
+    }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE BULLET SPEED LOOK HERE
+     * 
+     */
+
+
+    /*
+     * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
+    private float CalculateTargetingRange()
+    {
+        return targetingRangeBase * Mathf.Pow(level, 0.4f);
+    }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
+     * 
+     */
+>>>>>>> Stashed changes
     private IEnumerator ResetEnemeySpeed(EnemyMovement em)
     {
         yield return new WaitForSeconds(.5f);
         em.ResetSpeed();
     }
+<<<<<<< Updated upstream
+=======
+
+    private void OnDrawGizmosSelected()
+    {
+        //Handles.color = Color.cyan;
+        //Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Plot"))
+    //    {
+    //        collision.transform.GetComponent<Plot>();
+    //    }
+            
+    //}
+
+>>>>>>> Stashed changes
 }

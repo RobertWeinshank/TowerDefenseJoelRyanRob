@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -141,9 +142,21 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
+
+        if (currentWave == 15)
+        {
+            TriggerVictory();
+            return;
+        }
+
         currentWave++;
         LevelManager.main.GetWave(currentWave);
         StartCoroutine(StartWave());
+    }
+
+    private void TriggerVictory()
+    {
+        SceneManager.LoadScene("VictoryScene");
     }
 
     private void SpawnEnemy()

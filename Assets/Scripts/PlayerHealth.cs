@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         previousHealth = currentHealth;
-        healthUI.text = "Health: " + currentHealth.ToString();
+        healthUI.text =  currentHealth.ToString();
     }
 
     private void TriggerFlash()

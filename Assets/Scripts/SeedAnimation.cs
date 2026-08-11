@@ -23,6 +23,11 @@ public class SeedAnimation : MonoBehaviour
         Vector2 direction = (target.position - transform.position).normalized; //move the bullet towards the enemy
 
         rb.linearVelocity = direction * seedSpeed;
+
+        if (Mathf.Abs(transform.position.x - target.position.x) < 0.1f)
+        {
+            Destroy(this.gameObject);
+        }
     }
     //private float originalY;
 

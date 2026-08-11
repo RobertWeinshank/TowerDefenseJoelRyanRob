@@ -253,7 +253,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.49999997
+  m_Radius: 2.9081173
 --- !u!95 &-5024180219674431817
 Animator:
   serializedVersion: 7
@@ -313,6 +313,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   moveSpeed: 0
   damage: 1
+  leftRightMovement: {fileID: 0}
+  upMovement: {fileID: 0}
+  downMovement: {fileID: 0}
 --- !u!114 &-1360834488664272446
 MonoBehaviour:
   m_ObjectHideFlags: 0

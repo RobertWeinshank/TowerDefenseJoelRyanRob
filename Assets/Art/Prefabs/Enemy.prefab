@@ -176,8 +176,11 @@ MonoBehaviour:
   rb: {fileID: 2728958541271311608}
   animator: {fileID: -3831298069893214151}
   spriteRenderer: {fileID: 8026649814472739589}
-  moveSpeed: 1.2
+  moveSpeed: 1.3
   damage: 1
+  leftRightMovement: {fileID: 2038344072699324289, guid: 784b1cf7fed7e1c40bd30a745ed155dd, type: 3}
+  upMovement: {fileID: -2116019561982037661, guid: ff3754fecd307fa43959717a7d2d9f87, type: 3}
+  downMovement: {fileID: 8743636336130101768, guid: fa2e9b3c02e150244aff6913cd422d61, type: 3}
 --- !u!114 &3002825257287373558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +231,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: dd1d0c99fe88d4c45a1443607d6d64a1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.895
+  m_Volume: 0.863
   m_Pitch: 1
   Loop: 1
   Mute: 0

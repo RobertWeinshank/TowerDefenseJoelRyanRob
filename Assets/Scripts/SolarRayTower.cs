@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class SolarRayTower : MonoBehaviour
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
     [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    [SerializeField] private SpriteRenderer towerSpriteRenderer;
+    [SerializeField] private SpriteRenderer towerBaseRenderer;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
@@ -21,6 +24,13 @@ public class SolarRayTower : MonoBehaviour
     [Header("Audio")]
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public AudioClip fireClip;
+
+
+    public Sprite baseTowerSprite;
+    public Sprite upgrade1TowerSprite;
+    public Sprite upgrade2TowerSprite;
+
+    public Sprite upgrade2BaseSprite;
 
     private Transform target;
     private float timeUntilFire;
@@ -96,12 +106,40 @@ public class SolarRayTower : MonoBehaviour
             { 
                 Solarbeam(); 
             }
+<<<<<<< Updated upstream
+=======
+            if (level == 3)
+            {
+                if (damageOverTimeTimer > 0)
+                {
+                    WaitForSeconds();
+                    damageOverTimeTimer -= Time.deltaTime;
+                }
+            }
+
+>>>>>>> Stashed changes
         }
     }
 
     private void Solarbeam()
     {
+<<<<<<< Updated upstream
         if (target == null || target.gameObject == null) return;
+=======
+        target.gameObject.GetComponent<EnemyHealth>().TakeDamage(raybeamDamage); //call enemeyHealth script to deal raybeam damage
+        EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
+        //Debug.Log(target.gameObject.GetComponent<EnemyHealth>().hitPoints + "Hitpoints");
+        timeUntilFire = 0f; //Reset fire time
+        if (target.gameObject.GetComponent<EnemyHealth>().hitPoints == 0 || target.gameObject.GetComponent<EnemyHealth>().isDestroyed)
+        {
+            StopRaybeam();//Stop the raybeam if the target's hp is 0 or is destroyed
+            target = null;
+            return;
+        }
+
+        //FireDamage();
+        timeUntilFire = 0f;
+>>>>>>> Stashed changes
 
         EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
         
@@ -191,6 +229,8 @@ public class SolarRayTower : MonoBehaviour
 
     public void OpenUpgradeUI()
     {
+        if (upgradeUI == null) return;
+
         upgradeUI.SetActive(true);
     }
 
@@ -200,9 +240,23 @@ public class SolarRayTower : MonoBehaviour
         if (UIManager.main != null) UIManager.main.SetHoveringState(false);
     }
 
+<<<<<<< Updated upstream
     public void UpgradePath1() 
     {
         if (LevelManager.main == null || CalculateCost() > LevelManager.main.currency) return;
+=======
+    /*
+     * IF YOU NEED TO CHANGE INCREASE DAMAGE UPGRADE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
+    public void UpgradePath1() //Ramping Damage
+    {
+        towerSpriteRenderer.sprite = upgrade1TowerSprite;
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+>>>>>>> Stashed changes
 
         LevelManager.main.SpendCurrency(CalculateCost());
         level++;
@@ -211,34 +265,105 @@ public class SolarRayTower : MonoBehaviour
         targetingRange = CalculateTargetingRange();
 
         CloseUpgradeUI();
-    }
+<<<<<<< Updated upstream
+=======
+        Destroy(upgradeUI);
+        //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        Debug.Log("Ramping damage");
 
+>>>>>>> Stashed changes
+    }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE INCREASE DAMAGE UPGRADE LOOK HERE
+     * 
+     */
+
+<<<<<<< Updated upstream
     public void UpgradePath2() 
     {
         if (LevelManager.main == null || CalculateCost() > LevelManager.main.currency) return;
+=======
+
+
+    /*
+     * IF YOU NEED TO CHANGE DoT UPGRADE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
+    public void UpgradePath2() //Damage over Time
+    {
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        towerBaseRenderer.sprite = upgrade2BaseSprite;
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            return;
+        }
+>>>>>>> Stashed changes
 
         LevelManager.main.SpendCurrency(CalculateCost());
         level++; 
         
         CloseUpgradeUI();
+<<<<<<< Updated upstream
+=======
+        Destroy(upgradeUI);
+        //Debug.Log("New BPS: " + damagePerSecond + "\nNew Range: " + targetingRange + "\nNew Cost: " + CalculateCost());
+        Debug.Log("Damage over time");
+>>>>>>> Stashed changes
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE DoT UPGRADE LOOK HERE
+     * 
+     */
+
 
     private int CalculateCost()
     {
         return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
     }
 
+    /*
+     * IF YOU NEED TO CHANGE DPS (FIRE SPEED) LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
     private float CalculateDamagePerSecond()
     {
         return damagePerSecondBase * Mathf.Pow(level, 0.6f);
     }
+<<<<<<< Updated upstream
     
+=======
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE DPS (FIRE SPEED) LOOK HERE
+     * 
+     */
+
+
+
+    /*
+     * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
+     * vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv 
+     */
+>>>>>>> Stashed changes
     private float CalculateTargetingRange()
     {
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
+    /*
+     * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     * IF YOU NEED TO CHANGE TARGETING RANGE LOOK HERE
+     * 
+     */
 
-    private void OnDrawGizmosSelected()
+    private IEnumerator WaitForSeconds()
+    {
+        yield return new WaitForSeconds(1f);
+        FireDamage();
+
+    }
+private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, targetingRange);

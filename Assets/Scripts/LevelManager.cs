@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class LevelManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class LevelManager : MonoBehaviour
     public GameObject[] quadrant1;
     public GameObject[] quadrant2;
     public GameObject[] quadrant3;
+
+    public GameObject[] riverTiles;
 
     public GameObject smog;
     public GameObject smog1;
@@ -37,8 +40,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currency = 600;
-        health = 300;
+        currency = 120;
+        health = 20;
         gaiaEnergy = 0;
 
         
@@ -67,11 +70,17 @@ public class LevelManager : MonoBehaviour
 
         if (currentWave == 4)
         {
+            
             for (int i = 0; i < quadrant2.Length; i++)
             {
                 quadrant2[i].SetActive(true);
             }
             smog1.SetActive(false);
+
+            for (int i = 0; i < riverTiles.Length; i++)
+            {
+                riverTiles[i].SetActive(false);
+            }
         }
 
         if (currentWave == 6)
