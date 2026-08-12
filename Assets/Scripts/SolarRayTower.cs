@@ -245,7 +245,8 @@ public class SolarRayTower : MonoBehaviour
         {
             return;
         }
-        towerSpriteRenderer.sprite = upgrade1TowerSprite;
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        towerBaseRenderer.sprite = upgrade2BaseSprite;
         LevelManager.main.SpendCurrency(CalculateCost());
 
         level = 2;

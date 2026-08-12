@@ -9,6 +9,6 @@ public class WaveUI : MonoBehaviour
     //Display health UI
     private void OnGUI()
     {
-        waveUI.text = LevelManager.main.currentWave.ToString();
+        waveUI.text = "Wave " + LevelManager.main.currentWave.ToString();
     }
 }

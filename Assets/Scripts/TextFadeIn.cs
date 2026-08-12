@@ -6,7 +6,7 @@ public class TextFadeIn : MonoBehaviour
 {
     [Header("Fade Timing Layout (Must equal Activation Clip duration)")]
     [Range(0f, 8f)] [SerializeField] private float fadeInDuration = 1f;
-    [Range(0f, 36f)] [SerializeField] private float holdDuration = 6f;
+    [Range(0f, 40f)] [SerializeField] private float holdDuration = 6f;
     [Range(0f, 8f)] [SerializeField] private float fadeOutDuration = 1f;
 
     private CanvasGroup canvasGroup;
