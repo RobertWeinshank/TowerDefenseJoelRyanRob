@@ -32,10 +32,11 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
+    public static UnityEvent oilRigSpawn = new UnityEvent();
 
     public int currentWave = 1;
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
+    public int enemiesAlive;
     private int enemiesLeftToSpawn;
     private float eps;//Enemies per second
     private bool isSpawning = false;
@@ -56,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         onEnemyDestroy.AddListener(EnemyDestroyed); //Anytime onEnemyDestroyed is called, call EnemyDestroyed
+        oilRigSpawn.AddListener(SpawnOilRigNumber);
     }
 
     private void Start()
@@ -320,4 +322,10 @@ public class EnemySpawner : MonoBehaviour
         
         return -1;
     }
+
+    private void SpawnOilRigNumber()
+    {
+        enemiesAlive++;
+    }
 }
+

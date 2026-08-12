@@ -1012,10 +1012,9 @@ MonoBehaviour:
   upgradeUI: {fileID: 615289607545867256}
   upgradeButton: {fileID: 5021747633653151298}
   upgradeButton2: {fileID: 5343019337254405032}
-  sellButton: {fileID: 0}
   spriteRenderer: {fileID: 8715983700299222041}
   ambientLoopClip: {fileID: 8300000, guid: 48890cd28687fb1478f0b983c0325d95, type: 3}
-  shootClip: {fileID: 8300000, guid: b0c3cc19c79413941aba21caf1751742, type: 3}
+  shootClip: {fileID: 8300000, guid: 4714fbd8b13d24d5581d58436c099234, type: 3}
   targetingRange: 3
   rotationSpeed: 200
   bulletsPerSecond: 1
@@ -1065,13 +1064,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 48890cd28687fb1478f0b983c0325d95, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.404
+  m_Volume: 0.311
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 164
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1160,15 +1159,15 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: b0c3cc19c79413941aba21caf1751742, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4714fbd8b13d24d5581d58436c099234, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.687
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 119
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
