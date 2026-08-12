@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (LevelManager.main.currentWave <= 3)
+        if (LevelManager.main.currentWave <= 6)
         {
             //If the enemy's position is on the targeted path location, increase pathIndex 
             if (Vector2.Distance(target.position, transform.position) <= 0.1f)

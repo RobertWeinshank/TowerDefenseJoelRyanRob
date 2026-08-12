@@ -152,13 +152,14 @@ public class TurretSlowmo : MonoBehaviour
 
     public void UpgradePath1() //Lethal Damage
     {
-        towerSpriteRenderer.sprite = upgrade1TowerSprite;
-        vineSpriteRenderer.sprite = upgrade1VineSprite;
+        
 
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
         }
+        towerSpriteRenderer.sprite = upgrade1TowerSprite;
+        vineSpriteRenderer.sprite = upgrade1VineSprite;
 
         LevelManager.main.SpendCurrency(CalculateCost());
 
@@ -174,13 +175,14 @@ public class TurretSlowmo : MonoBehaviour
     }
     public void UpgradePath2() //Super Slow
     {
-        towerSpriteRenderer.sprite = upgrade2TowerSprite;
-        vineSpriteRenderer.sprite = upgrade2VineSprite;
+        
 
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
         }
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        vineSpriteRenderer.sprite = upgrade2VineSprite;
 
         LevelManager.main.SpendCurrency(CalculateCost());
 

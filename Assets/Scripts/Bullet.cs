@@ -30,11 +30,11 @@ public class Bullet : MonoBehaviour
     {
         em.UpdateSpeed(.5f);
 
-        Debug.Log("Slow Basic Turret Shot");
+        //Debug.Log("Slow Basic Turret Shot");
 
         yield return new WaitForSeconds(.15f);
 
-        Debug.Log("Reset Basic Turret Shot");
+        //Debug.Log("Reset Basic Turret Shot");
         em.ResetSpeed();
         Destroy(gameObject);
 

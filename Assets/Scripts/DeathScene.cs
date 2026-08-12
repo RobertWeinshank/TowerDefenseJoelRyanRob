@@ -5,7 +5,7 @@ public class DeathScene : MonoBehaviour
 {
     public void OnRestartButton()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void OnGiveUpButton()
