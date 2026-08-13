@@ -19,6 +19,8 @@ public class OilCheckpoint : MonoBehaviour
             //EnemyHealth eh = collision.GetComponent<EnemyHealth>();
             //eh.TakeDamage(20);
             EnemySpawner.onEnemyDestroy.Invoke();
+            //EnemySpawner.oilRigSpawn.Invoke();
+            //EnemySpawner.enemiesAlive++;
             onPlot = true;
             Instantiate(oilRig, oilRigPlot.transform.position, Quaternion.identity);
             

@@ -176,11 +176,11 @@ MonoBehaviour:
   rb: {fileID: 2728958541271311608}
   animator: {fileID: -3831298069893214151}
   spriteRenderer: {fileID: 8026649814472739589}
-  moveSpeed: 3
+  moveSpeed: 4
   damage: 1
-  leftRightMovement: {fileID: -8148267388553557907, guid: a21e04bd868b6174495852f408c4bd3f, type: 3}
-  upMovement: {fileID: -8148267388553557907, guid: a21e04bd868b6174495852f408c4bd3f, type: 3}
-  downMovement: {fileID: -8148267388553557907, guid: a21e04bd868b6174495852f408c4bd3f, type: 3}
+  leftRightMovement: {fileID: 21300000, guid: ab3ea5a35579d02f1901c80dcfb1acae, type: 3}
+  upMovement: {fileID: -2098096702513056960, guid: b3b002ddb5b822240b76d32ef74a8314, type: 3}
+  downMovement: {fileID: -1400323276434159669, guid: 25593194fce3c974a9064f6e2cf2dce1, type: 3}
 --- !u!114 &3002825257287373558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3020427e9e8cd49a5ce8d0a7c97187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  hitPoints: 4
+  hitPoints: 7
   currencyWorth: 2
   isDestroyed: 0
 --- !u!95 &-3831298069893214151
@@ -229,15 +229,15 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: dd1d0c99fe88d4c45a1443607d6d64a1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1aa0068830a4548b0a7af7e6de4b65e9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.895
-  m_Pitch: 1
+  m_Volume: 0.226
+  m_Pitch: 2.34
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 204
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -10,7 +10,7 @@ public class SolarRayTower : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private UnityEngine.UI.Button upgradeButton;
-    [SerializeField] private UnityEngine.UI.Button upgradeButton2;
+    //[SerializeField] private UnityEngine.UI.Button upgradeButton2;
     [SerializeField] private SpriteRenderer towerSpriteRenderer;
     [SerializeField] private SpriteRenderer towerBaseRenderer;
 
@@ -59,7 +59,7 @@ public class SolarRayTower : MonoBehaviour
         damagePerSecondBase = damagePerSecond;
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradePath1); //anytime you click the upgrade button, calls the upgrade method
-        upgradeButton2.onClick.AddListener(UpgradePath2);
+        //upgradeButton2.onClick.AddListener(UpgradePath2);
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -240,12 +240,13 @@ public class SolarRayTower : MonoBehaviour
      */
     public void UpgradePath1() //Ramping Damage
     {
-        towerSpriteRenderer.sprite = upgrade1TowerSprite;
+        
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
         }
-
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        towerBaseRenderer.sprite = upgrade2BaseSprite;
         LevelManager.main.SpendCurrency(CalculateCost());
 
         level = 2;
@@ -273,13 +274,13 @@ public class SolarRayTower : MonoBehaviour
      */
     public void UpgradePath2() //Damage over Time
     {
-        towerSpriteRenderer.sprite = upgrade2TowerSprite;
-        towerBaseRenderer.sprite = upgrade2BaseSprite;
+        
         if (CalculateCost() > LevelManager.main.currency)
         {
             return;
         }
-
+        towerSpriteRenderer.sprite = upgrade2TowerSprite;
+        towerBaseRenderer.sprite = upgrade2BaseSprite;
         LevelManager.main.SpendCurrency(CalculateCost());
 
         level = 3;

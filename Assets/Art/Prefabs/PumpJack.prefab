@@ -264,7 +264,7 @@ Animator:
   m_GameObject: {fileID: 5066191190330130685}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7516e2162fd809c488944a9549bbdb1b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -328,6 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3020427e9e8cd49a5ce8d0a7c97187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  hitPoints: 10
-  currencyWorth: 50
+  hitPoints: 100
+  currencyWorth: 40
   isDestroyed: 0
